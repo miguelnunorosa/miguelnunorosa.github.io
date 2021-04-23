@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Portfólio Online">
+    <meta name="author" content="Miguel Rosa">
+    <meta name="email" content="miguelrosa.programacao@gmail.com">
+    <meta name="keywords" content="portfolio IT, development, java, web, apps, android, ios">
+
+    <!-- Facebook/Twitter sharing -->
+    <meta property="og:title" content="Miguel Rosa - Portfólio Online">
+    <meta property="og:description" content="O meu Portfólio online.">
+    <meta property="og:image" content="img/avatar.png">
+    <meta property="og:url" content="https://miguelnunorosa.github.io/">
+    <meta property="og:locale" content="pt_PT">
+    <meta name="twitter:card" content="img/defaultImage.png"> <!-- rever -->
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+    <link href="vendor/normalize/normalize.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="css/myStyle.css" rel="stylesheet">
+
+    <script src="js/modernizr.js"></script>
+
+    <link href="img/avatar.png" rel="icon">
+    <title>Miguel Rosa - Portfólio Online</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white"><i class="fas fa-laptop-code"></i> /home/miguelrosa - Portfólio Online
+                        </h4>
+                        <p class="text-muted">Meu portfólio online.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contactos</h4>
+                        <ul class="list-unstyled">
+                            <li class="text-white"><i class="fab fa-linkedin"></i> <a
+                                    href="https://www.linkedin.com/in/miguel-nuno-rosa-77075716b/"
+                                    class="text-white">Follow on Linkedin</a></li>
+                            <li class="text-white"><i class="fab fa-twitter"></i> <a 
+                                    href="#" class="text-white">Follow on Twitter</a></li>
+                            <li class="text-white"><i class="fab fa-facebook-square"></i> <a
+                                    href="https://www.facebook.com/miguelnunorosa/ " class="text-white">Like on Facebook</a></li>
+                            <li class="text-white"><i class="fab fa-github"></i> <a
+                                    href="https://github.com/miguelnunorosa/" class="text-white">Follow on Github</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong><i class="fas fa-laptop-code"></i> /home/miguelrosa - Portfólio Online</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+                    <!-- new project here -->
+
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" src="img/web-BerlitzRacingTeam.jpg">
+                            <div class="card-body">
+                                <h5><strong>Berlitz Racing Team</strong></h5>
+                                <p class="card-text">Website da equipa de SimRacing Berlitz Racing Team.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-sm btn-outline-success"
+                                            href="projects/berlitzracingteam" target="_blank">Ver Página</a>
+                                    </div>
+                                    <a type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalBerlitz">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" src="img/others-ArduinoRCCar.jpg">
+                            <div class="card-body">
+                                <h5><strong>Arduino RCCar</strong></h5>
+                                <p class="card-text">Trabalho realizado para a disciplina de Física Aplicada à
+                                    Computação, utilizando Arduino e vários sensores.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-sm btn-outline-success"
+                                            href="projects/arduinoRCCar" target="_blank">Ver página</a>
+                                    </div>
+                                    <a type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalArduinoRCCAR">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="bd-placeholder-img card-img-top" src="img/web-MaletaDoMineiro.png">
+                            <div class="card-body">
+                                <h5><strong>Maleta do Mineiro</strong></h5>
+                                <p class="card-text">A Maleta do Mineiro é uma ferramenta educativa, sob a forma de maleta pedagógica que permitirá aos alunos e professores do 1º, 2º e 3º ciclos conhecer as características do património natural e cultural da Mina S. Domingos, através dos vários jogos e atividades de exploração.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-sm btn-outline-success"
+                                            href="projects/maletaDoMineiro" target="_blank">Ver página</a>
+                                    </div>
+                                    <a type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalMaletaMineiro">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <!-- New modal here -->
+
+    <!-- Modal: Berlitz Racing Team -->
+    <div class="modal fade" id="modalBerlitz" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Berlitz Racing Team: Detalhes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <ul class="list-unstyled">
+                        <li><strong>Programação:</strong></li>
+                        <li><i class="fab fa-html5"></i> HTML 5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS</li>
+                        <li><i class="fab fa-js"></i> Javascript</li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        <li><strong>Outros:</strong></li>
+                        <li><i class="fab fa-linux"></i> Desenvolvido em Linux</li>
+                        <li><i class="fas fa-universal-access"></i> Acessibilidade verificada por w3validator</li>
+                        <li><i class="fab fa-osi"></i> Open Source</li>
+                    </ul>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal: Arduino RC Car -->
+    <div class="modal fade" id="modalArduinoRCCAR" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Arduino RCCar: Detalhes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                    <ul class="list-unstyled">
+                        <li><strong>Controlo do RC Car:</strong></li>
+                        <li><i class="fab fa-android"></i> Aplicação Android para controlar o RCCar</li>
+                        <li><i class="fab fa-bluetooth-b"></i> Comunicação através de Bluetooth</li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        <li><strong>Programação:</strong></li>
+                        <li><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> Página do projeto: HTML + CSS + JS</li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        <li><strong>Outros:</strong></li>
+                        <li><i class="fab fa-linux"></i> Desenvolvido em Linux</li>
+                        <li><i class="fas fa-graduation-cap"></i> Projeto Académico</li>
+                    </ul>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal: Arduino RC Car -->
+    <div class="modal fade" id="modalMaletaMineiro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Maleta do Mineiro: Detalhes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                    <ul class="list-unstyled">
+                        <li><strong>Maleta do Mineiro:</strong></li>
+                        <li><i class="fas fa-desktop"></i> DVD Interactivo compatível com Windows, MacOSx</li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        <li><strong>Programação:</strong></li>
+                        <li><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> Página do projeto: HTML + CSS + JS</li>
+                        <li><i class="far fa-file-code"></i> DVD Interactivo desenvolvido em Flash</li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        <li><strong>Outros:</strong></li>
+                        <li><i class="fab fa-windows"></i> Desenvolvido em Windows</li>
+                        <li><i class="far fa-copyright"></i> Closed Source</li>
+                    </ul>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

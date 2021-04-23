@@ -1,0 +1,428 @@
+body {
+    background: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+
+
+/*---------------------------------------
+    Typorgraphy              
+-----------------------------------------*/
+
+h1,
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: 32px;
+    padding-bottom: 12px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-weight: 400;
+}
+
+p {
+    color: #757575;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.small {
+    font-size: 14px;
+    line-height: 28px;
+}
+
+#service .small {
+    padding: 10px 20px 20px 20px;
+}
+
+
+
+
+/*---------------------------------------
+    General               
+-----------------------------------------*/
+
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #a1c45a;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    text-decoration: none !important;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #a1c45a;
+    outline: none;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 62px;
+    text-align: center;
+}
+
+#portfolio {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#portfolio {
+    padding-top: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+#portfolio img {
+    border-radius: 2px;
+    width: 100%;
+}
+
+.bg-gray {
+    background-color: #f9f9f9;
+}
+
+.bg-dark {
+    background-color: #202020;
+}
+
+.head {
+    display: block;
+    height: 80px;
+    position: relative;
+    text-align: center;
+}
+
+.lr-pd {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+/*---------------------------------------
+    Preloader section              
+-----------------------------------------*/
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #ffffff;
+}
+
+.sk-spinner-pulse {
+    width: 60px;
+    height: 60px;
+    background-color: #a1c45a;
+    border-radius: 2%;
+    -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+    animation: sk-pulseScaleOut 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-pulseScaleOut {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes sk-pulseScaleOut {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------
+   Footer section              
+-----------------------------------------*/
+
+footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+footer .footer-link ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+footer .footer-link ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 22px;
+}
+
+footer .footer-link ul li a {
+    color: #666;
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+}
+
+footer .footer-link ul li a:hover {
+    color: #a1c45a;
+}
+
+footer .footer-copyright {
+    padding-top: 16px;
+}
+
+footer .footer-copyright p {
+    padding-top: 8px;
+}
+
+
+
+/*---------------------------------------
+   Social icon             
+-----------------------------------------*/
+
+.social-icon {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icon li {
+    display: inline-block;
+    list-style: none;
+}
+
+.social-icon li a {
+    color: #666;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    top: 0px;
+}
+
+.social-icon li a:hover {
+    background: #a1c45a;
+    color: #ffffff;
+    top: -5px;
+}
+
+
+
+/*---------------------------------------
+   Back top         
+-----------------------------------------*/
+
+.go-top {
+    background-color: #ffffff;
+    box-shadow: 1px 1.732px 12px 0px rgba(0, 0, 0, .14), 1px 1.732px 3px 0px rgba(0, 0, 0, .12);
+    border-radius: 2px;
+    transition: all 1s ease;
+    bottom: 2em;
+    right: 2em;
+    color: #333;
+    font-size: 22px;
+    display: none;
+    position: fixed;
+    text-decoration: none;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.go-top:hover {
+    background: #a1c45a;
+    color: #ffffff;
+}
+
+
+
+/*---------------------------------------
+   Mobile Responsive         
+-----------------------------------------*/
+
+@media (max-width: 980px) {
+
+    #home {
+        height: 32vh;
+    }
+
+    #home p {
+        font-size: 23px;
+    }
+
+    .filter-wrapper li a {
+        padding: 8px 12px;
+    }
+
+    #about .chart {
+        margin-top: 32px;
+    }
+
+    #cta p {
+        font-size: 24px;
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    body {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    #portfolio,
+    #cta,
+    #team,
+    #service,
+    #contact {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+}
+
+
+
+@media (max-width: 767px) {
+
+    .navbar-default {
+        text-align: center;
+        padding-top: 0px;
+    }
+
+    .navbar-default .navbar-brand {
+        line-height: 25px;
+    }
+
+    .navbar-default .navbar-nav li a {
+        line-height: 35px;
+    }
+
+    footer .footer-link ul li {
+        padding: 8px;
+    }
+
+}
+
+
+
+@media (max-width: 650px) {
+
+    #home {
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    #home p,
+    #cta p {
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    .filter-wrapper {
+        text-align: center;
+    }
+
+    .filter-wrapper li a {
+        padding: 4px;
+    }
+
+    #contact .contact-detail-1 {
+        padding-top: 32px;
+    }
+
+
+}

@@ -3,259 +3,310 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
     <meta name="title" content="Portfólio Online">
     <meta name="author" content="Miguel Rosa">
-    <meta name="email" content="miguelrosa.programacao@gmail.com">
+    <meta name="email" content="contacto@miguelrosa.info">
     <meta name="keywords" content="portfolio IT, development, java, web, apps, android, ios">
 
-    <!-- Facebook/Twitter sharing -->
-    <meta property="og:title" content="Miguel Rosa - Portfólio Online">
-    <meta property="og:description" content="O meu Portfólio online.">
-    <meta property="og:image" content="img/avatar.png">
-    <meta property="og:url" content="https://miguelnunorosa.github.io/">
-    <meta property="og:locale" content="pt_PT">
-    <meta name="twitter:card" content="img/defaultImage.png"> <!-- rever -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="O meu portfólio online.">
+    <meta property="og:title" content="/home/miguelrosa/portfolio_online - Portfólio Miguel Rosa" />
+    <meta property="og:url" content="https://miguelnunorosa.github.io" />
+    <meta property="og:image" content="assets/img/avatar.png" />
+    <meta property="og:locale" content="pt_PT" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+
+    <!-- Magnific-popup CSS -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
 
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
-    <link href="vendor/normalize/normalize.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet">
-    <link href="css/myStyle.css" rel="stylesheet">
+    <!-- Main css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/portfolioSection.css">
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet"
+        type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet" type="text/css">
 
-    <script src="js/modernizr.js"></script>
-
-    <link href="img/avatar.png" rel="icon">
-    <title>Miguel Rosa - Portfólio Online</title>
+    <link href="assets/img/avatar.png" rel="icon">
+    <title>Portfólio Online - Miguel Rosa</title>
 </head>
 
 <body>
 
-    <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white"><i class="fas fa-laptop-code"></i> /home/miguelrosa - Portfólio Online
-                        </h4>
-                        <p class="text-muted">Meu portfólio online.</p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contactos</h4>
-                        <ul class="list-unstyled">
-                            <li class="text-white"><i class="fab fa-linkedin"></i> <a
-                                    href="https://www.linkedin.com/in/miguel-nuno-rosa-77075716b/"
-                                    class="text-white">Follow on Linkedin</a></li>
-                            <li class="text-white"><i class="fab fa-twitter"></i> <a 
-                                    href="#" class="text-white">Follow on Twitter</a></li>
-                            <li class="text-white"><i class="fab fa-facebook-square"></i> <a
-                                    href="https://www.facebook.com/miguelnunorosa/ " class="text-white">Like on Facebook</a></li>
-                            <li class="text-white"><i class="fab fa-github"></i> <a
-                                    href="https://github.com/miguelnunorosa/" class="text-white">Follow on Github</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <a href="#" class="navbar-brand d-flex align-items-center">
-                    <strong><i class="fas fa-laptop-code"></i> /home/miguelrosa - Portfólio Online</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+
+
+    <!-- Navigation Section -->
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
                 </button>
+
+                <a href="#" class="navbar-brand">Portfólio Online - Miguel Rosa</a>
             </div>
+
         </div>
-    </header>
+    </div>
 
-    <main>
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+
+                    <!-- work section -->
+                    <div class="work-section wow fadeInUp" data-wow-delay="1s">
+
+                        <ul class="filter-wrapper clearfix">
+                            <li><a href="#" data-filter="*" class="selected opc-main-bg">Todos</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".web">Web Design</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".mobile">Mobile App</a></li>
+                            <li><a href="#" class="opc-main-bg" data-filter=".others">Outros</a></li>
+                        </ul>
 
 
-                    <!-- new project here -->
+                        <div class="work-box-section wow fadeInUp" data-wow-delay="1.4s">
+                            <div class="work-box-wrapper col4-work-box">
 
+                                <!-- Projects Page -->
+                                <div class="work-box web col-md-4 col-sm-6">
 
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" src="img/web-BerlitzRacingTeam.jpg">
-                            <div class="card-body">
-                                <h5><strong>Berlitz Racing Team</strong></h5>
-                                <p class="card-text">Website da equipa de SimRacing Berlitz Racing Team.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-success"
-                                            href="projects/berlitzracingteam" target="_blank">Ver Página</a>
+                                    <div class="portfolio-thumb">
+                                        <div>
+                                            <a>
+                                                <div class="portfolio-item-hover" data-toggle="modal"
+                                                    data-target="#webMP"> <i class="fa fa-eye"></i> </div>
+                                                <img src="assets/img/web-MyPortfolio.jpg" class="img-responsive"
+                                                    alt="Portfolio Pessoal Miguel Rosa">
+                                            </a>
+
+                                        </div>
+
                                     </div>
-                                    <a type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modalBerlitz">Detalhes</a>
+
                                 </div>
+
+                                <div class="work-box web col-md-4 col-sm-6">
+
+                                    <div class="portfolio-thumb">
+                                        <div>
+                                            <a>
+                                                <div class="portfolio-item-hover" data-toggle="modal"
+                                                    data-target="#webBRT"> <i class="fa fa-eye"></i> </div>
+                                                <img src="assets/img/web-BerlitzRacingTeam.jpg" class="img-responsive"
+                                                    alt="Berlitz Racing Team website">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="work-box others col-md-4 col-sm-6">
+
+                                    <div class="portfolio-thumb">
+                                        <div>
+                                            <a>
+                                                <div class="portfolio-item-hover" data-toggle="modal"
+                                                    data-target="#othersARC"> <i class="fa fa-eye"></i> </div>
+                                                <img src="assets/img/others-ArduinoRCCar.jpg" class="img-responsive"
+                                                    alt="Arduino RC Car">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" src="img/others-ArduinoRCCar.jpg">
-                            <div class="card-body">
-                                <h5><strong>Arduino RCCar</strong></h5>
-                                <p class="card-text">Trabalho realizado para a disciplina de Física Aplicada à
-                                    Computação, utilizando Arduino e vários sensores.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-success"
-                                            href="projects/arduinoRCCar" target="_blank">Ver página</a>
+                    <!-- Projects Modal -->
+                    <div id="webMP" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><strong>Portfólio Online - Miguel Rosa</strong></h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <img src="assets/img/web-MyPortfolio.jpg">
+
+                                    <br />
+                                    <div>
+                                        <p><strong>Título:</strong> Portfólio Online</p>
+                                        <p><strong>Desenvolvido a:</strong> Dezembro 2020</p>
+                                        <p><strong>Tecnologias:</strong>
+                                            <span class="iconify" data-icon="bx:bxl-html5" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxl-css3" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxs-file-js" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxl-tux" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxl-gitlab" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bx-coin-stack"
+                                                data-inline="false"></span>
+                                        </p>
+                                        <p><strong>Status:</strong> online</p>
+                                        <p><a href="https://miguelrosa.info" target="_blank">Live Demo</a></p>
                                     </div>
-                                    <a type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modalArduinoRCCAR">Detalhes</a>
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+                    <div id="webBRT" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><strong>Berlitz Racing Team</strong></h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <img src="assets/img/web-BerlitzRacingTeam.jpg">
+
+                                    <br />
+                                    <div>
+                                        <p><strong>Título:</strong> Berlitz Racing Team</p>
+                                        <p><strong>Desenvolvido a:</strong> Dezembro 2020</p>
+                                        <p><strong>Tecnologias:</strong>
+                                            <span class="iconify" data-icon="bx:bxl-html5" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxl-css3" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxs-file-js" data-inline="false"></span>
+                                        </p>
+                                        <p><strong>Status:</strong> online</p>
+                                        <p><a href="https://archive.miguelrosa.info/web/BerlitzRacingTeam/"
+                                                target="_blank">Live Demo</a></p>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="othersARC" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><strong>Arduino RCCar</strong></h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <img src="assets/img/others-ArduinoRCCar.jpg">
+
+                                    <br />
+                                    <div>
+                                        <p><strong>Título:</strong> Arduino RC Car</p>
+                                        <p><strong>Desenvolvido a:</strong> Janeiro 2016</p>
+                                        <p><strong>Tecnologias:</strong>
+                                            <span class="iconify" data-icon="bx:bxl-html5" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxl-css3" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxs-file-js" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bxl-android" data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bx-bluetooth"
+                                                data-inline="false"></span>
+                                            <span class="iconify" data-icon="bx:bx-mobile" data-inline="false"></span>
+                                        </p>
+                                        <p><a href="http://archive.miguelrosa.info/web/arduinoRCCar/"
+                                                target="_blank">Webpage</a></p>
+                                    </div>
+
+                                    <span class="iconify" data-icon="" data-inline="false"></span>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" src="img/web-MaletaDoMineiro.png">
-                            <div class="card-body">
-                                <h5><strong>Maleta do Mineiro</strong></h5>
-                                <p class="card-text">A Maleta do Mineiro é uma ferramenta educativa, sob a forma de maleta pedagógica que permitirá aos alunos e professores do 1º, 2º e 3º ciclos conhecer as características do património natural e cultural da Mina S. Domingos, através dos vários jogos e atividades de exploração.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-success"
-                                            href="projects/maletaDoMineiro" target="_blank">Ver página</a>
-                                    </div>
-                                    <a type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#modalMaletaMineiro">Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
             </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Footer Section -->
+    <footer>
 
+        <div class="container">
+            <div class="row">
 
-
-    <!-- New modal here -->
-
-    <!-- Modal: Berlitz Racing Team -->
-    <div class="modal fade" id="modalBerlitz" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Berlitz Racing Team: Detalhes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <ul class="list-unstyled">
-                        <li><strong>Programação:</strong></li>
-                        <li><i class="fab fa-html5"></i> HTML 5</li>
-                        <li><i class="fab fa-css3-alt"></i> CSS</li>
-                        <li><i class="fab fa-js"></i> Javascript</li>
+                <div class="col-md-12 col-sm-12">
+                    <p class="small">&copy Copyright 2020 - <?php echo date("Y");?> . <strong>Portfólio Online</strong> . All Rights Reserved</p>
+                    <ul class="social-icon">
+                        <li><a href="https://gitlab.com/miguelnunorosa" class="fa fa-github wow fadeInUp"
+                                data-wow-delay="0.3s"></a></li>
+                        <li><a href="https://www.linkedin.com/in/miguel-nuno-rosa-77075716b/"
+                                class="fa fa-linkedin wow fadeInUp" data-wow-delay="0.3s"></a></li>
+                        <li><a href="mailto:contacto@miguelrosa.info" class="fa fa-envelope wow fadeInUp"
+                                data-wow-delay="0.3s"></a></li>
                     </ul>
-
-                    <ul class="list-unstyled">
-                        <li><strong>Outros:</strong></li>
-                        <li><i class="fab fa-linux"></i> Desenvolvido em Linux</li>
-                        <li><i class="fas fa-universal-access"></i> Acessibilidade verificada por w3validator</li>
-                        <li><i class="fab fa-osi"></i> Open Source</li>
-                    </ul>
-
-
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-                </div>
+
             </div>
         </div>
-    </div>
+
+    </footer>
 
 
-    <!-- Modal: Arduino RC Car -->
-    <div class="modal fade" id="modalArduinoRCCAR" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Arduino RCCar: Detalhes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                    <ul class="list-unstyled">
-                        <li><strong>Controlo do RC Car:</strong></li>
-                        <li><i class="fab fa-android"></i> Aplicação Android para controlar o RCCar</li>
-                        <li><i class="fab fa-bluetooth-b"></i> Comunicação através de Bluetooth</li>
-                    </ul>
-
-                    <ul class="list-unstyled">
-                        <li><strong>Programação:</strong></li>
-                        <li><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> Página do projeto: HTML + CSS + JS</li>
-                    </ul>
-
-                    <ul class="list-unstyled">
-                        <li><strong>Outros:</strong></li>
-                        <li><i class="fab fa-linux"></i> Desenvolvido em Linux</li>
-                        <li><i class="fas fa-graduation-cap"></i> Projeto Académico</li>
-                    </ul>
+    <!-- Back top -->
+    <a href="#" class="go-top"><i class="fa fa-angle-up"></i></a>
 
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- SCRIPTS -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/imagesloaded.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/magnific-popup-options.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
-
-    <!-- Modal: Arduino RC Car -->
-    <div class="modal fade" id="modalMaletaMineiro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Maleta do Mineiro: Detalhes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p></p>
-                    <ul class="list-unstyled">
-                        <li><strong>Maleta do Mineiro:</strong></li>
-                        <li><i class="fas fa-desktop"></i> DVD Interactivo compatível com Windows, MacOSx</li>
-                    </ul>
-
-                    <ul class="list-unstyled">
-                        <li><strong>Programação:</strong></li>
-                        <li><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> Página do projeto: HTML + CSS + JS</li>
-                        <li><i class="far fa-file-code"></i> DVD Interactivo desenvolvido em Flash</li>
-                    </ul>
-
-                    <ul class="list-unstyled">
-                        <li><strong>Outros:</strong></li>
-                        <li><i class="fab fa-windows"></i> Desenvolvido em Windows</li>
-                        <li><i class="far fa-copyright"></i> Closed Source</li>
-                    </ul>
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
