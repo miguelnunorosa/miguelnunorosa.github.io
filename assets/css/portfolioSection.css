@@ -8,9 +8,10 @@
     position: relative;
 }
 
+/* remove commet to show images (index) in gray scale
 .portfolio-thumb img {
     filter: grayscale(100%);
-}
+}*/
 
 
 .portfolio-item-hover {
