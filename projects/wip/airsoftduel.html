@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pontuação</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Formulário de Pontuação</h2>
+        <form id="scoreForm">
+            <div class="form-group">
+                <label for="player1Name">Nome do Jogador 1</label>
+                <input type="text" class="form-control" id="player1Name" placeholder="Insira o nome do jogador 1">
+            </div>
+            <div class="form-group">
+                <label for="player2Name">Nome do Jogador 2</label>
+                <input type="text" class="form-control" id="player2Name" placeholder="Insira o nome do jogador 2">
+            </div>
+            <div class="form-group">
+                <label for="player1Score">Pontuação do Jogador 1</label>
+                <input type="number" class="form-control" id="player1Score" placeholder="Insira a pontuação do jogador 1">
+            </div>
+            <div class="form-group">
+                <label for="player2Score">Pontuação do Jogador 2</label>
+                <input type="number" class="form-control" id="player2Score" placeholder="Insira a pontuação do jogador 2">
+            </div>
+            <button type="submit" class="btn btn-primary">Submeter</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script customizado -->
+    <script src="insertDB.js"></script>
+</body>
+</html>
