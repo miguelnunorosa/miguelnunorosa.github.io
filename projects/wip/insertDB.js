@@ -10,8 +10,8 @@ document.getElementById('scoreForm').addEventListener('submit', function(event) 
     // Cria a mensagem de resultado
     const resultMessage = `
         <h4>Resultados:</h4>
-        <p>Jogador 1: ${player1Name} - Pontuação: ${player1Score}</p>
-        <p>Jogador 2: ${player2Name} - Pontuação: ${player2Score}</p>
+        <p><strong>Jogador 1:</strong> ${player1Name} - <strong>Pontuação:</strong> ${player1Score}</p>
+        <p><strong>Jogador 2:</strong> ${player2Name} - <strong>Pontuação:</strong> ${player2Score}</p>
     `;
 
     // Exibe a mensagem de resultado
