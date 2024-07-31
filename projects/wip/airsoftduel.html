@@ -6,55 +6,41 @@
     <title>Formulário de Pontuação</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .form-container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .btn-custom {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8 form-container">
-                <h2 class="text-center mb-4">Formulário de Pontuação</h2>
-                <form id="scoreForm">
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="player1Name">Nome do Jogador 1</label>
-                            <input type="text" class="form-control" id="player1Name" placeholder="Insira o nome do jogador 1" required>
+            <div class="col-md-8">
+                <img src="https://via.placeholder.com/200" alt="Logo" class="logo mb-4">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Formulário de Pontuação</h2>
+                    <form id="scoreForm">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="player1Name">Nome do Jogador 1</label>
+                                <input type="text" class="form-control" id="player1Name" placeholder="Insira o nome do jogador 1" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="player2Name">Nome do Jogador 2</label>
+                                <input type="text" class="form-control" id="player2Name" placeholder="Insira o nome do jogador 2" required>
+                            </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="player1Score">Pontuação do Jogador 1</label>
-                            <input type="number" class="form-control" id="player1Score" placeholder="Insira a pontuação do jogador 1" required>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="player1Score">Pontuação do Jogador 1</label>
+                                <input type="number" class="form-control" id="player1Score" placeholder="Insira a pontuação do jogador 1" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="player2Score">Pontuação do Jogador 2</label>
+                                <input type="number" class="form-control" id="player2Score" placeholder="Insira a pontuação do jogador 2" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="player2Name">Nome do Jogador 2</label>
-                            <input type="text" class="form-control" id="player2Name" placeholder="Insira o nome do jogador 2" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="player2Score">Pontuação do Jogador 2</label>
-                            <input type="number" class="form-control" id="player2Score" placeholder="Insira a pontuação do jogador 2" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-custom btn-block">Submeter</button>
-                </form>
-                <div id="result" class="mt-4"></div>
+                        <button type="submit" class="btn btn-custom btn-block">Submeter</button>
+                    </form>
+                    <div id="result" class="mt-4"></div>
+                </div>
             </div>
         </div>
     </div>
