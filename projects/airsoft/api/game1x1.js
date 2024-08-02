@@ -137,6 +137,9 @@ async function loadResults() {
         });
 
         // Inicializar DataTable
+        if ($.fn.DataTable.isDataTable('#results-table')) {
+            $('#results-table').DataTable().destroy();
+        }
         $('#results-table').DataTable({
             "paging": true,
             "searching": true,
