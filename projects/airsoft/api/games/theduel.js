@@ -13,30 +13,40 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app);
 
-// Função para carregar os resultados do Firebase
+// Função para carregar resultados na tabela
 async function loadResults() {
-    try {
-        const querySnapshot = await db.collection("game1x1results").get();
-        const tableBody = document.querySelector("#resultsTable tbody");
-        tableBody.innerHTML = ""; // Limpa o corpo da tabela antes de preencher
+    const tableBody = document.querySelector('#results-table tbody');
+    tableBody.innerHTML = ''; // Limpar tabela existente
 
-        querySnapshot.forEach((doc) => {
+    try {
+        const snapshot = await db.collection('game-1x1-results').orderBy('timestamp', 'desc').get();
+        snapshot.forEach(doc => {
             const data = doc.data();
-            const row = document.createElement("tr");
+            const row = document.createElement('tr');
+
             row.innerHTML = `
                 <td>${data.player1Name}</td>
                 <td>${data.player1Score}</td>
                 <td>${data.player2Name}</td>
                 <td>${data.player2Score}</td>
-                <td>${new Date(data.timestamp).toLocaleString()}</td>
+                <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
             `;
+            
             tableBody.appendChild(row);
         });
 
-        // Inicializa o DataTable
-        $('#resultsTable').DataTable();
+        // Inicializar DataTable
+        if ($.fn.DataTable.isDataTable('#results-table')) {
+            $('#results-table').DataTable().destroy();
+        }
+        $('#results-table').DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": true,
+            "info": true
+        });
     } catch (error) {
-        console.error("Erro ao carregar os resultados: ", error);
+        console.error('Erro ao carregar resultados: ', error);
     }
 }
 
