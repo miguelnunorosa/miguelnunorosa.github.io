@@ -11,8 +11,8 @@ const firebaseConfig = {
 
 
 // Inicializa o Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(app);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 // Função para registrar os resultados
 document.getElementById('results-form').addEventListener('submit', async (e) => {
@@ -31,10 +31,11 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
             player2Score: player2Score,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
-        alert('Resultado registrado com sucesso!');
+        alert('Resultado registado com sucesso!');
         document.getElementById('results-form').reset();
     } catch (error) {
-        console.error('Erro ao registrar o resultado: ', error);
-        alert('Erro ao registrar o resultado.');
+        console.error('Erro ao registar o resultado: ', error);
+        alert('Erro ao registar o resultado.');
     }
 });
+
