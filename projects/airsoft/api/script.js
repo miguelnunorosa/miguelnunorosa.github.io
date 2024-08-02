@@ -30,14 +30,39 @@ async function fetchPlayerNames() {
     return players;
 }
 
-// Configurar autocompletar para os campos de nome dos jogadores
-$(document).ready(async function() {
+// Função para preencher os dropdowns
+async function populateDropdowns() {
     const playerNames = await fetchPlayerNames();
     
-    $("#player1-name, #player2-name").autocomplete({
-        source: playerNames
+    const player1Select = document.getElementById('player1-name');
+    const player2Select = document.getElementById('player2-name');
+
+    playerNames.forEach(name => {
+        const option1 = document.createElement('option');
+        option1.value = name;
+        option1.textContent = name;
+        player1Select.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = name;
+        option2.textContent = name;
+        player2Select.appendChild(option2);
     });
-});
+
+    player1Select.addEventListener('change', () => updateDropdowns(player1Select, player2Select));
+    player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
+}
+
+// Função para desativar jogador selecionado no outro dropdown
+function updateDropdowns(changedSelect, otherSelect) {
+    const selectedValue = changedSelect.value;
+
+    Array.from(otherSelect.options).forEach(option => {
+        option.disabled = option.value === selectedValue;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', populateDropdowns);
 
 // Função para registrar os resultados
 document.getElementById('results-form').addEventListener('submit', async (e) => {
@@ -60,6 +85,7 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
         });
         alert('Resultado registrado com sucesso!');
         document.getElementById('results-form').reset();
+        populateDropdowns(); // Recarregar dropdowns após registrar o resultado
     } catch (error) {
         console.error('Erro ao registrar o resultado: ', error);
         alert('Erro ao registrar o resultado.');
