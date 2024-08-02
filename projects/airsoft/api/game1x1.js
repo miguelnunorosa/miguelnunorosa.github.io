@@ -146,4 +146,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('game-form').addEventListener('submit', submitResults);
     loadResults(); // Carregar resultados na inicialização
 });
-
