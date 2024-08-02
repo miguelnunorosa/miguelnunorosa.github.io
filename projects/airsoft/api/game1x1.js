@@ -97,7 +97,7 @@ async function submitResults(event) {
     }
 }
 
-// Função para atualizar as estatísticas dos jogadores
+// Função para incrementar pontuações
 async function updatePlayerStats(playerName, kills, deaths) {
     const playerRef = db.collection('players').where('playerName', '==', playerName);
     const snapshot = await playerRef.get();
@@ -116,6 +116,7 @@ async function updatePlayerStats(playerName, kills, deaths) {
     });
 }
 
+// Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     populateDropdowns();
     document.getElementById('game-form').addEventListener('submit', submitResults);
