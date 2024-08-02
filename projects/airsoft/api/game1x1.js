@@ -19,40 +19,62 @@ const db = firebase.firestore();
 
 
 // Função para buscar jogadores da coleção "players" e preencher os dropdowns
-async function fetchPlayers() {
-    const player1Select = document.getElementById('player1');
-    const player2Select = document.getElementById('player2');
+
+// Função para buscar jogadores da coleção "players"
+async function fetchPlayerNames() {
+    const players = [];
+    try {
+        const snapshot = await db.collection('players').get();
+        snapshot.forEach(doc => {
+            players.push(doc.data().playerName); // Ajustado para usar playerName
+        });
+    } catch (error) {
+        console.error('Erro ao buscar nomes de jogadores: ', error);
+    }
+    return players;
+}
+
+
+
+// Função para preencher os dropdowns
+async function populateDropdowns() {
+    const playerNames = await fetchPlayerNames();
+    
+    const player1Select = document.getElementById('player1-name');
+    const player2Select = document.getElementById('player2-name');
 
     player1Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
     player2Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
 
-    const snapshot = await db.collection('players').get();
-    snapshot.forEach(doc => {
-        const playerData = doc.data();
+    playerNames.forEach(name => {
         const option1 = document.createElement('option');
-        option1.value = doc.id;
-        option1.textContent = playerData.playerName;
+        option1.value = name;
+        option1.textContent = name;
         player1Select.appendChild(option1);
 
         const option2 = document.createElement('option');
-        option2.value = doc.id;
-        option2.textContent = playerData.playerName;
+        option2.value = name;
+        option2.textContent = name;
         player2Select.appendChild(option2);
     });
 
-    // Desabilitar a seleção do mesmo jogador nos dois dropdowns
-    player1Select.addEventListener('change', () => {
-        for (const option of player2Select.options) {
-            option.disabled = option.value === player1Select.value;
-        }
-    });
+    player1Select.addEventListener('change', () => updateDropdowns(player1Select, player2Select));
+    player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
+}
 
-    player2Select.addEventListener('change', () => {
-        for (const option of player1Select.options) {
-            option.disabled = option.value === player2Select.value;
-        }
+
+
+// Função para desativar jogador selecionado no outro dropdown
+function updateDropdowns(changedSelect, otherSelect) {
+    const selectedValue = changedSelect.value;
+
+    Array.from(otherSelect.options).forEach(option => {
+        option.disabled = option.value === selectedValue;
     });
 }
+
+document.addEventListener('DOMContentLoaded', populateDropdowns);
+
 
 
 
@@ -129,6 +151,8 @@ async function submitResults(event) {
     document.getElementById('game-form').reset();
     alert('Resultado registrado com sucesso!');
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchPlayers();
