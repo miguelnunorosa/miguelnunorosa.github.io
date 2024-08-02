@@ -16,6 +16,29 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+// Função para buscar jogadores da coleção "players"
+async function fetchPlayerNames() {
+    const players = [];
+    try {
+        const snapshot = await db.collection('players').get();
+        snapshot.forEach(doc => {
+            players.push(doc.data().name);
+        });
+    } catch (error) {
+        console.error('Erro ao buscar nomes de jogadores: ', error);
+    }
+    return players;
+}
+
+// Configurar autocompletar para os campos de nome dos jogadores
+$(document).ready(async function() {
+    const playerNames = await fetchPlayerNames();
+    
+    $("#player1-name, #player2-name").autocomplete({
+        source: playerNames
+    });
+});
+
 // Função para registrar os resultados
 document.getElementById('results-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -28,7 +51,7 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
     console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
 
     try {
-        await db.collection('game--1x1-results').add({
+        await db.collection('game-1x1-results').add({
             player1Name: player1Name,
             player1Score: player1Score,
             player2Name: player2Name,
@@ -42,4 +65,3 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
         alert('Erro ao registrar o resultado.');
     }
 });
-
