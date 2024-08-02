@@ -30,12 +30,18 @@ async function fetchPlayerNames() {
     return players;
 }
 
+
+
+
 // Função para preencher os dropdowns
 async function populateDropdowns() {
     const playerNames = await fetchPlayerNames();
     
     const player1Select = document.getElementById('player1-name');
     const player2Select = document.getElementById('player2-name');
+
+    player1Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
+    player2Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
 
     playerNames.forEach(name => {
         const option1 = document.createElement('option');
@@ -53,6 +59,9 @@ async function populateDropdowns() {
     player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
 }
 
+
+
+
 // Função para desativar jogador selecionado no outro dropdown
 function updateDropdowns(changedSelect, otherSelect) {
     const selectedValue = changedSelect.value;
@@ -64,7 +73,10 @@ function updateDropdowns(changedSelect, otherSelect) {
 
 document.addEventListener('DOMContentLoaded', populateDropdowns);
 
-// Função para registrar os resultados
+
+
+
+// Função para registrar os resultados jogo 1x1
 document.getElementById('results-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -91,3 +103,4 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
         alert('Erro ao registrar o resultado.');
     }
 });
+
