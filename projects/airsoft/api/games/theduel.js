@@ -10,3 +10,36 @@ const firebaseConfig = {
 };
 
 
+// Inicializando o Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+
+
+
+
+// Função para carregar os resultados do Firebase
+function loadResults() {
+    db.collection("game1x1results").get().then((querySnapshot) => {
+        const tableBody = document.querySelector("#resultsTable tbody");
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${data.player1Name}</td>
+                <td>${data.player1Score}</td>
+                <td>${data.player2Score}</td>
+                <td>${data.player2Name}</td>
+                <td>${data.timestamp}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+        // Inicializando o DataTable
+        $('#resultsTable').DataTable();
+    }).catch((error) => {
+        console.error("Erro ao carregar os resultados: ", error);
+    });
+}
+
+// Carregando os resultados quando a página for carregada
+window.onload = loadResults;
