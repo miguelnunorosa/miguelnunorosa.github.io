@@ -13,7 +13,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// Função para buscar jogadores da coleção "players" e preencher os dropdowns
+// Função para buscar jogadores da coleção "players"
 async function fetchPlayerNames() {
     const players = [];
     try {
@@ -49,7 +49,6 @@ async function populateDropdowns() {
         player2Select.appendChild(option2);
     });
 
-    // Atualiza o dropdown quando um jogador é selecionado
     player1Select.addEventListener('change', () => updateDropdowns(player1Select, player2Select));
     player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
 }
@@ -72,8 +71,6 @@ async function submitResults(event) {
     const player2Name = document.getElementById('player2').value;
     const player2Score = parseInt(document.getElementById('player2Score').value);
 
-    console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
-
     try {
         // Registrar resultado do jogo
         await db.collection('game-1x1-results').add({
@@ -91,13 +88,14 @@ async function submitResults(event) {
         alert('Resultado registrado com sucesso!');
         document.getElementById('game-form').reset();
         populateDropdowns(); // Recarregar dropdowns após registrar o resultado
+        loadResults(); // Recarregar resultados na tabela
     } catch (error) {
         console.error('Erro ao registrar o resultado: ', error);
         alert('Erro ao registrar o resultado.');
     }
 }
 
-// Função para incrementar pontuações
+// Função para atualizar estatísticas dos jogadores
 async function updatePlayerStats(playerName, kills, deaths) {
     const playerRef = db.collection('players').where('playerName', '==', playerName);
     const snapshot = await playerRef.get();
@@ -116,8 +114,35 @@ async function updatePlayerStats(playerName, kills, deaths) {
     });
 }
 
+// Função para carregar resultados na tabela
+async function loadResults() {
+    const tableBody = document.querySelector('#results-table tbody');
+    tableBody.innerHTML = ''; // Limpar tabela existente
+
+    try {
+        const snapshot = await db.collection('game-1x1-results').orderBy('timestamp', 'desc').get();
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${data.player1Name}</td>
+                <td>${data.player1Score}</td>
+                <td>${data.player2Name}</td>
+                <td>${data.player2Score}</td>
+                <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
+            `;
+            
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Erro ao carregar resultados: ', error);
+    }
+}
+
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     populateDropdowns();
     document.getElementById('game-form').addEventListener('submit', submitResults);
+    loadResults(); // Carregar resultados na inicialização
 });
