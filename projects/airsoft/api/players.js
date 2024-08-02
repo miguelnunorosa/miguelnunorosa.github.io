@@ -9,14 +9,9 @@ const firebaseConfig = {
     measurementId: "SEU_MEASUREMENT_ID"
 };
 
-
-
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
-
-
 
 // Função para buscar jogadores da coleção "players" e exibir na tabela
 async function fetchAndDisplayPlayers() {
