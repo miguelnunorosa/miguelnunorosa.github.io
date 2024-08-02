@@ -16,13 +16,15 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+
+
 // Função para buscar jogadores da coleção "players"
 async function fetchPlayerNames() {
     const players = [];
     try {
         const snapshot = await db.collection('players').get();
         snapshot.forEach(doc => {
-            players.push(doc.data().playerName);
+            players.push(doc.data().playerName); // Ajustado para usar playerName
         });
     } catch (error) {
         console.error('Erro ao buscar nomes de jogadores: ', error);
@@ -57,6 +59,7 @@ async function populateDropdowns() {
     player1Select.addEventListener('change', () => updateDropdowns(player1Select, player2Select));
     player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
 }
+
 
 
 // Função para desativar jogador selecionado no outro dropdown
@@ -107,16 +110,18 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
 });
 
 
+
 // Função para atualizar estatísticas do jogador
 async function updatePlayerStats(playerName, kills, deaths) {
     try {
-        const playerDoc = db.collection('players').doc(playerName);
-        const doc = await playerDoc.get();
-        if (doc.exists) {
+        const playerDoc = db.collection('players').where('playerName', '==', playerName);
+        const snapshot = await playerDoc.get();
+        if (!snapshot.empty) {
+            const doc = snapshot.docs[0];
             const playerData = doc.data();
             const updatedKills = (playerData.numberOfKills || 0) + kills;
             const updatedDeaths = (playerData.numberOfDeaths || 0) + deaths;
-            await playerDoc.update({
+            await doc.ref.update({
                 numberOfKills: updatedKills,
                 numberOfDeaths: updatedDeaths
             });
