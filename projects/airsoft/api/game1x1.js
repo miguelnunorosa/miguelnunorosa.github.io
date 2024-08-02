@@ -10,6 +10,8 @@ const firebaseConfig = {
 };
 
 
+
+
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -17,12 +19,14 @@ const db = firebase.firestore();
 
 
 // Função para buscar jogadores da coleção "players" e preencher os dropdowns
+
+// Função para buscar jogadores da coleção "players"
 async function fetchPlayerNames() {
     const players = [];
     try {
         const snapshot = await db.collection('players').get();
         snapshot.forEach(doc => {
-            players.push(doc.data().playerName);
+            players.push(doc.data().playerName); // Ajustado para usar playerName
         });
     } catch (error) {
         console.error('Erro ao buscar nomes de jogadores: ', error);
@@ -35,9 +39,9 @@ async function fetchPlayerNames() {
 // Função para preencher os dropdowns
 async function populateDropdowns() {
     const playerNames = await fetchPlayerNames();
-
-    const player1Select = document.getElementById('player1');
-    const player2Select = document.getElementById('player2');
+    
+    const player1Select = document.getElementById('player1-name');
+    const player2Select = document.getElementById('player2-name');
 
     player1Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
     player2Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
@@ -73,14 +77,15 @@ document.addEventListener('DOMContentLoaded', populateDropdowns);
 
 
 
+
 // Função para registrar os resultados
-document.getElementById('game-form').addEventListener('submit', async (e) => {
+document.getElementById('results-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const player1Name = document.getElementById('player1').value;
-    const player1Score = parseInt(document.getElementById('player1Score').value);
-    const player2Name = document.getElementById('player2').value;
-    const player2Score = parseInt(document.getElementById('player2Score').value);
+    const player1Name = document.getElementById('player1-name').value;
+    const player1Score = parseInt(document.getElementById('player1-score').value);
+    const player2Name = document.getElementById('player2-name').value;
+    const player2Score = parseInt(document.getElementById('player2-score').value);
 
     console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
 
@@ -99,7 +104,7 @@ document.getElementById('game-form').addEventListener('submit', async (e) => {
         await updatePlayerStats(player2Name, player2Score, player1Score);
 
         alert('Resultado registrado com sucesso!');
-        document.getElementById('game-form').reset();
+        document.getElementById('results-form').reset();
         populateDropdowns(); // Recarregar dropdowns após registrar o resultado
     } catch (error) {
         console.error('Erro ao registrar o resultado: ', error);
@@ -107,17 +112,49 @@ document.getElementById('game-form').addEventListener('submit', async (e) => {
     }
 });
 
+
+
 // Função para incrementar pontuações
-async function updatePlayerStats(playerName, kills, deaths) {
-    const playerRef = db.collection('players').where("playerName", "==", playerName);
-    const snapshot = await playerRef.get();
+async function submitResults(event) {
+    event.preventDefault();
 
-    if (snapshot.empty) {
-        console.log('Nenhum jogador encontrado com o nome: ', playerName);
-        return;
-    }
+    const player1Id = document.getElementById('player1').value;
+    const player1Score = parseInt(document.getElementById('player1Score').value, 10);
+    const player2Id = document.getElementById('player2').value;
+    const player2Score = parseInt(document.getElementById('player2Score').value, 10);
 
-    snapshot.forEach(async (doc) => {
-        const playerData = doc.data();
-        await db.collection('players').doc(doc.id).update({
-            numberOfKills: (playerData.numberOfKills || 0) + kills,
+    const player1Ref = db.collection('players').doc(player1Id);
+    const player2Ref = db.collection('players').doc(player2Id);
+
+    await db.runTransaction(async (transaction) => {
+        const player1Doc = await transaction.get(player1Ref);
+        const player2Doc = await transaction.get(player2Ref);
+
+        if (!player1Doc.exists || !player2Doc.exists) {
+            throw "Player document does not exist!";
+        }
+
+        const player1Data = player1Doc.data();
+        const player2Data = player2Doc.data();
+
+        transaction.update(player1Ref, {
+            numberOfKills: (player1Data.numberOfKills || 0) + player1Score,
+            numberOfDeaths: (player1Data.numberOfDeaths || 0) + player2Score
+        });
+
+        transaction.update(player2Ref, {
+            numberOfKills: (player2Data.numberOfKills || 0) + player2Score,
+            numberOfDeaths: (player2Data.numberOfDeaths || 0) + player1Score
+        });
+    });
+
+    document.getElementById('game-form').reset();
+    alert('Resultado registrado com sucesso!');
+}
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchPlayers();
+    document.getElementById('game-form').addEventListener('submit', submitResults);
+});
