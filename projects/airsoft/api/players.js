@@ -39,6 +39,9 @@ async function fetchAndDisplayPlayers() {
             `;
             playersTableBody.appendChild(row);
         });
+
+        // Inicializa a DataTable
+        $('#players-table').DataTable();
     } catch (error) {
         console.error('Erro ao buscar jogadores: ', error);
     }
