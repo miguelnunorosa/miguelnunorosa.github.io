@@ -59,20 +59,50 @@ async function fetchAndDisplayResults() {
     }
 }
 
-document.getElementById('result-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
+// Função para preencher os dropdowns com os jogadores
+async function populatePlayerDropdowns() {
+    try {
+        const playersSnapshot = await db.collection('players').get();
+        const player1Dropdown = document.getElementById('player1');
+        const player2Dropdown = document.getElementById('player2');
 
+        playersSnapshot.forEach(doc => {
+            const playerData = doc.data();
+            const option1 = document.createElement('option');
+            option1.value = playerData.name;
+            option1.textContent = playerData.name;
+            player1Dropdown.appendChild(option1);
+
+            const option2 = document.createElement('option');
+            option2.value = playerData.name;
+            option2.textContent = playerData.name;
+            player2Dropdown.appendChild(option2);
+        });
+    } catch (error) {
+        console.error('Erro ao buscar jogadores: ', error);
+    }
+}
+
+// Evento de envio do formulário
+document.getElementById('result-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
     const player1 = document.getElementById('player1').value;
-    const player1Kills = parseInt(document.getElementById('player1-kills').value, 10);
-    const player1Deaths = parseInt(document.getElementById('player1-deaths').value, 10);
+    const player1Kills = document.getElementById('player1-kills').value;
+    const player1Deaths = document.getElementById('player1-deaths').value;
     const player2 = document.getElementById('player2').value;
-    const player2Kills = parseInt(document.getElementById('player2-kills').value, 10);
-    const player2Deaths = parseInt(document.getElementById('player2-deaths').value, 10);
+    const player2Kills = document.getElementById('player2-kills').value;
+    const player2Deaths = document.getElementById('player2-deaths').value;
 
     await registerResult(player1, player1Kills, player1Deaths, player2, player2Kills, player2Deaths);
-    await fetchAndDisplayResults();
+    fetchAndDisplayResults(); // Atualiza a tabela com os novos resultados
 
-    document.getElementById('result-form').reset(); // Limpar o formulário
+    // Limpar o formulário após o registro
+    document.getElementById('result-form').reset();
 });
 
-document.addEventListener('DOMContentLoaded', fetchAndDisplayResults);
+// Inicializa a página buscando resultados e jogadores
+document.addEventListener('DOMContentLoaded', async () => {
+    await populatePlayerDropdowns();
+    fetchAndDisplayResults();
+});
