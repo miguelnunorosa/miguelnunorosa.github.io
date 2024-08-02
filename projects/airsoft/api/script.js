@@ -10,11 +10,12 @@ const firebaseConfig = {
 };
 
 
-// Inicializa o Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(app);
 
-// Função para registrar os resultados
+
+// Inicializa o Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 // Função para registrar os resultados
 document.getElementById('results-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
     console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
 
     try {
-        await db.collection('game-1x1-results').add({
+        await db.collection('game-results').add({
             player1Name: player1Name,
             player1Score: player1Score,
             player2Name: player2Name,
