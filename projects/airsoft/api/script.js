@@ -28,7 +28,7 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
     console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
 
     try {
-        await db.collection('game-results').add({
+        await db.collection('game--1x1-results').add({
             player1Name: player1Name,
             player1Score: player1Score,
             player2Name: player2Name,
