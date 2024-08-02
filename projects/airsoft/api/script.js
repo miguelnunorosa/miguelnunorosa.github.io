@@ -22,7 +22,7 @@ async function fetchPlayerNames() {
     try {
         const snapshot = await db.collection('players').get();
         snapshot.forEach(doc => {
-            players.push(doc.data().name);
+            players.push(doc.data().playerName);
         });
     } catch (error) {
         console.error('Erro ao buscar nomes de jogadores: ', error);
