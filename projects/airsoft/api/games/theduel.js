@@ -9,37 +9,36 @@ const firebaseConfig = {
     measurementId: "G-F8F1DBRS6S"
 };
 
-
-// Inicializando o Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-
-
-
+// Inicializa o Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore(app);
 
 // Função para carregar os resultados do Firebase
-function loadResults() {
-    db.collection("game1x1results").get().then((querySnapshot) => {
+async function loadResults() {
+    try {
+        const querySnapshot = await db.collection("game1x1results").get();
         const tableBody = document.querySelector("#resultsTable tbody");
+        tableBody.innerHTML = ""; // Limpa o corpo da tabela antes de preencher
+
         querySnapshot.forEach((doc) => {
             const data = doc.data();
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${data.player1Name}</td>
                 <td>${data.player1Score}</td>
-                <td>${data.player2Score}</td>
                 <td>${data.player2Name}</td>
-                <td>${data.timestamp}</td>
+                <td>${data.player2Score}</td>
+                <td>${new Date(data.timestamp).toLocaleString()}</td>
             `;
             tableBody.appendChild(row);
         });
-        // Inicializando o DataTable
+
+        // Inicializa o DataTable
         $('#resultsTable').DataTable();
-    }).catch((error) => {
+    } catch (error) {
         console.error("Erro ao carregar os resultados: ", error);
-    });
+    }
 }
 
-// Carregando os resultados quando a página for carregada
+// Carrega os resultados quando a página for carregada
 window.onload = loadResults;
