@@ -15,6 +15,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app);
 
 // Função para registrar os resultados
+// Função para registrar os resultados
 document.getElementById('results-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -22,6 +23,8 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
     const player1Score = parseInt(document.getElementById('player1-score').value);
     const player2Name = document.getElementById('player2-name').value;
     const player2Score = parseInt(document.getElementById('player2-score').value);
+
+    console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
 
     try {
         await db.collection('game-1x1-results').add({
@@ -38,3 +41,4 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
         alert('Erro ao registrar o resultado.');
     }
 });
+
