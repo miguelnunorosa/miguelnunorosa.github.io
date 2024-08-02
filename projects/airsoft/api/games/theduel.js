@@ -50,5 +50,9 @@ async function loadResults() {
     }
 }
 
-// Carrega os resultados quando a página for carregada
-window.onload = loadResults;
+
+
+// Inicializa a página
+document.addEventListener('DOMContentLoaded', () => {
+    loadResults(); // Carregar resultados na inicialização
+});
