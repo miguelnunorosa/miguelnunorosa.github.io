@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airsoft - Jogo 1x1</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>Game 1x1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
@@ -13,7 +14,7 @@
     <!-- Menu Superior -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Airsoft</a>
+            <a class="navbar-brand" href="index.html">Airsoft</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,64 +38,61 @@
         </div>
     </nav>
 
-    <!-- Formulário de Registro de Resultados -->
+    <!-- Formulário de Registro de Jogos -->
     <div class="container mt-5">
-        <h3 class="text-center mb-4">Registrar Resultado de Jogo 1x1</h3>
-        <form id="result-form">
-            <div class="mb-3">
-                <label for="player1" class="form-label">Jogador 1</label>
-                <select class="form-select" id="player1" required>
-                    <!-- Opções serão preenchidas dinamicamente -->
-                </select>
+        <h3 class="text-center mb-4">Registrar Jogo 1x1</h3>
+        <form id="game-form" class="p-4 border rounded shadow-sm bg-light">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="player1" class="form-label"><i class="fas fa-user"></i> Player 1 Name</label>
+                    <select class="form-select" id="player1" required></select>
+                </div>
+                <div class="col-md-6">
+                    <label for="player1Score" class="form-label"><i class="fas fa-bullseye"></i> Player 1 Score</label>
+                    <input type="number" class="form-control" id="player1Score" required>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="player1-kills" class="form-label">Kills Jogador 1</label>
-                <input type="number" class="form-control" id="player1-kills" required>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="player2" class="form-label"><i class="fas fa-user"></i> Player 2 Name</label>
+                    <select class="form-select" id="player2" required></select>
+                </div>
+                <div class="col-md-6">
+                    <label for="player2Score" class="form-label"><i class="fas fa-bullseye"></i> Player 2 Score</label>
+                    <input type="number" class="form-control" id="player2Score" required>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="player1-deaths" class="form-label">Deaths Jogador 1</label>
-                <input type="number" class="form-control" id="player1-deaths" required>
-            </div>
-            <div class="mb-3">
-                <label for="player2" class="form-label">Jogador 2</label>
-                <select class="form-select" id="player2" required>
-                    <!-- Opções serão preenchidas dinamicamente -->
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="player2-kills" class="form-label">Kills Jogador 2</label>
-                <input type="number" class="form-control" id="player2-kills" required>
-            </div>
-            <div class="mb-3">
-                <label for="player2-deaths" class="form-label">Deaths Jogador 2</label>
-                <input type="number" class="form-control" id="player2-deaths" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="submit" class="btn btn-primary w-100 mt-3"><i class="fas fa-save"></i> Guardar</button>
         </form>
     </div>
 
-    <!-- Resultados Registrados -->
+    <!-- Tabela de Resultados -->
     <div class="container mt-5">
-        <h3 class="text-center mb-4">Resultados Registrados</h3>
+        <h3 class="text-center mb-4">Resultados de Jogos 1x1</h3>
         <div class="table-responsive">
             <table id="results-table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Jogador 1</th>
-                        <th>Kills Jogador 1</th>
-                        <th>Deaths Jogador 1</th>
-                        <th>Jogador 2</th>
-                        <th>Kills Jogador 2</th>
-                        <th>Deaths Jogador 2</th>
+                        <th>Player 1</th>
+                        <th>Score 1</th>
+                        <th>Score 2</th>
+                        <th>Player 2</th>
+                        <th>Timestamp</th>
                     </tr>
                 </thead>
-                <tbody id="results-table-body">
-                    <!-- Resultados serão inseridos aqui -->
+                <tbody id="game1x1results-table-body">
+                    <!-- Dados dos jogadores serão inseridos aqui -->
                 </tbody>
             </table>
         </div>
     </div>
 
+
+
+
+    
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -104,5 +102,6 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script defer src="game1x1results.js"></script>
+
 </body>
 </html>
