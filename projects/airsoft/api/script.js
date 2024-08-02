@@ -1,12 +1,12 @@
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyDLbaamQzgAA6RNCTvyU8lM-432CN6CxFs",
-    authDomain: "airsoft-games-565ce.firebaseapp.com",
-    projectId: "airsoft-games-565ce",
-    storageBucket: "airsoft-games-565ce.appspot.com",
-    messagingSenderId: "553707912710",
-    appId: "1:553707912710:web:d99165bac1d59bc7f7cd87",
-    measurementId: "G-MTBQ2E1F04"
+    apiKey: "AIzaSyCyj-d_dhgMXHqKkG0BtneCAask84igu34",
+    authDomain: "airsoft-gamemaster-tool.firebaseapp.com",
+    projectId: "airsoft-gamemaster-tool",
+    storageBucket: "airsoft-gamemaster-tool.appspot.com",
+    messagingSenderId: "651326007639",
+    appId: "1:651326007639:web:50975fdc4e337c7a5d7612",
+    measurementId: "G-F8F1DBRS6S"
 };
 
 
