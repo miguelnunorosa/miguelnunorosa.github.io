@@ -135,6 +135,14 @@ async function loadResults() {
             
             tableBody.appendChild(row);
         });
+
+        // Inicializar DataTable
+        $('#results-table').DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": true,
+            "info": true
+        });
     } catch (error) {
         console.error('Erro ao carregar resultados: ', error);
     }
