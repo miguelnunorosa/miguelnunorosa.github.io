@@ -32,7 +32,6 @@ async function fetchPlayerNames() {
 
 
 
-
 // Função para preencher os dropdowns
 async function populateDropdowns() {
     const playerNames = await fetchPlayerNames();
@@ -60,8 +59,6 @@ async function populateDropdowns() {
 }
 
 
-
-
 // Função para desativar jogador selecionado no outro dropdown
 function updateDropdowns(changedSelect, otherSelect) {
     const selectedValue = changedSelect.value;
@@ -75,8 +72,7 @@ document.addEventListener('DOMContentLoaded', populateDropdowns);
 
 
 
-
-// Função para registrar os resultados jogo 1x1
+// Função para registrar os resultados
 document.getElementById('results-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -88,6 +84,7 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
     console.log("Dados do formulário:", { player1Name, player1Score, player2Name, player2Score });
 
     try {
+        // Registrar resultado do jogo
         await db.collection('game-1x1-results').add({
             player1Name: player1Name,
             player1Score: player1Score,
@@ -95,6 +92,11 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
             player2Score: player2Score,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
+
+        // Atualizar estatísticas dos jogadores
+        await updatePlayerStats(player1Name, player1Score, player2Score);
+        await updatePlayerStats(player2Name, player2Score, player1Score);
+
         alert('Resultado registrado com sucesso!');
         document.getElementById('results-form').reset();
         populateDropdowns(); // Recarregar dropdowns após registrar o resultado
@@ -104,3 +106,24 @@ document.getElementById('results-form').addEventListener('submit', async (e) => 
     }
 });
 
+
+// Função para atualizar estatísticas do jogador
+async function updatePlayerStats(playerName, kills, deaths) {
+    try {
+        const playerDoc = db.collection('players').doc(playerName);
+        const doc = await playerDoc.get();
+        if (doc.exists) {
+            const playerData = doc.data();
+            const updatedKills = (playerData.numberOfKills || 0) + kills;
+            const updatedDeaths = (playerData.numberOfDeaths || 0) + deaths;
+            await playerDoc.update({
+                numberOfKills: updatedKills,
+                numberOfDeaths: updatedDeaths
+            });
+        } else {
+            console.error('Jogador não encontrado: ', playerName);
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar estatísticas do jogador: ', error);
+    }
+}
