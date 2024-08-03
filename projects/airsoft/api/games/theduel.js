@@ -170,43 +170,11 @@ async function handleAddGameFormSubmit(event) {
 
 
 
-async function submitResults(event) {
-    event.preventDefault();
-
-    const player1Name = document.getElementById('player1Name').value;
-    const player1Score = parseInt(document.getElementById('player1Score').value);
-    const player2Name = document.getElementById('player2Name').value;
-    const player2Score = parseInt(document.getElementById('player2Score').value);
-
-    try {
-        // Registrar resultado do jogo
-        await db.collection('game-1x1-results').add({
-            player1Name: player1Name,
-            player1Score: player1Score,
-            player2Name: player2Name,
-            player2Score: player2Score,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        });
-
-        // Atualizar estatísticas dos jogadores
-        await updatePlayerStats(player1Name, player1Score, player2Score);
-        await updatePlayerStats(player2Name, player2Score, player1Score);
-
-        alert('Resultado registrado com sucesso!');
-        document.getElementById('add-game-form').reset();
-        populateDropdowns(); // Recarregar dropdowns após registrar o resultado
-        loadResults(); // Recarregar resultados na tabela
-    } catch (error) {
-        console.error('Erro ao registrar o resultado: ', error);
-        alert('Erro ao registrar o resultado.');
-    }
-}
-
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
     populateDropdowns();
-    document.getElementById('add-game-form').addEventListener('submit', submitResults);
+    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
     loadResults();
 });
