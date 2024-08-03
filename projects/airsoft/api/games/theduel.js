@@ -10,23 +10,26 @@ const firebaseConfig = {
 };
 
 // Inicializa o Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(app);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
 
 
-
-// Função para carregar resultados na tabela
-async function loadResults() {
-    const tableBody = document.querySelector('#results-table tbody');
-    tableBody.innerHTML = ''; // Limpar tabela existente
-
+// Função para carregar Lista Jogadores
+async function loadPlayersTable() {
     try {
-        const snapshot = await db.collection('game-1x1-results').orderBy('timestamp', 'desc').get();
+        const game1x1Results = document.getElementById('game-1x1-table-body');
+        game1x1Results.innerHTML = ''; // Limpar a tabela antes de adicionar novos dados
+
+        const snapshot = await db.collection('game-1x1-results').get();
         snapshot.forEach(doc => {
             const data = doc.data();
-            const row = document.createElement('tr');
+            const player1Name = data.player1Name;
+            const player1Score = data.player1Score;
+            const player2Name = data.player2Name;
+            const player2Score = data.player2Score; 
 
+            const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${data.player1Name}</td>
                 <td>${data.player1Score}</td>
@@ -34,22 +37,13 @@ async function loadResults() {
                 <td>${data.player2Score}</td>
                 <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
             `;
-            
-            tableBody.appendChild(row);
+            game1x1Results.append(row);
         });
 
-        // Inicializar DataTable
-        if ($.fn.DataTable.isDataTable('#results-table')) {
-            $('#results-table').DataTable().destroy();
-        }
-        $('#results-table').DataTable({
-            "paging": true,
-            "searching": true,
-            "ordering": true,
-            "info": true
-        });
+        // Inicializa a DataTable após os dados serem carregados
+        $('#players-table').DataTable();
     } catch (error) {
-        console.error('Erro ao carregar resultados: ', error);
+        console.error('Erro ao carregar Lista de Jogadores: ', error);
     }
 }
 
@@ -57,5 +51,5 @@ async function loadResults() {
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
-    loadResults(); // Carregar resultados na inicialização
+    loadPlayersTable();
 });
