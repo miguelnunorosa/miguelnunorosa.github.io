@@ -72,30 +72,113 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
     }
 }
 
+
+
+// Função para preencher os dropdowns
+async function populateDropdowns() {
+    const playerNames = await fetchPlayerNames();
+    
+    const player1Select = document.getElementById('player1Name');
+    const player2Select = document.getElementById('player2Name');
+
+    player1Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
+    player2Select.innerHTML = '<option value="" disabled selected>Selecione um jogador</option>';
+
+    playerNames.forEach(name => {
+        const option1 = document.createElement('option');
+        option1.value = name;
+        option1.textContent = name;
+        player1Select.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = name;
+        option2.textContent = name;
+        player2Select.appendChild(option2);
+    });
+
+    player1Select.addEventListener('change', () => updateDropdowns(player1Select, player2Select));
+    player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
+}
+
+
+
+// Função para desativar jogador selecionado no outro dropdown
+function updateDropdowns(changedSelect, otherSelect) {
+    const selectedValue = changedSelect.value;
+
+    Array.from(otherSelect.options).forEach(option => {
+        option.disabled = option.value === selectedValue;
+    });
+}
+
+
+
+// Função para atualizar estatísticas dos jogadores
+async function updatePlayerStats(playerName, kills, deaths) {
+    const playerRef = db.collection('players').where('playerName', '==', playerName);
+    const snapshot = await playerRef.get();
+
+    if (snapshot.empty) {
+        console.error('Jogador não encontrado:', playerName);
+        return;
+    }
+
+    const doc = snapshot.docs[0];
+    const playerId = doc.id;
+
+    await db.collection('players').doc(playerId).update({
+        numberOfKills: (doc.data().numberOfKills || 0) + kills,
+        numberOfDeaths: (doc.data().numberOfDeaths || 0) + deaths
+    });
+}
+
+
+
+
+
 // Função para lidar com o envio do formulário de adicionar jogo
-function handleAddGameFormSubmit(event) {
+async function handleAddGameFormSubmit(event) {
     event.preventDefault();
-    console.log('Formulário de adicionar jogo enviado...');
+
     const player1Name = document.getElementById('player1Name').value;
     const player1Score = parseInt(document.getElementById('player1Score').value);
     const player2Name = document.getElementById('player2Name').value;
     const player2Score = parseInt(document.getElementById('player2Score').value);
 
-    if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
-        addGame(player1Name, player1Score, player2Name, player2Score).then(() => {
-            document.getElementById('add-game-form').reset();
-            $('#addGameModal').modal('hide');
-        }).catch(error => {
-            console.error('Erro ao adicionar Jogo: ', error);
-        });
-    } else {
-        console.error('Dados do formulário inválidos');
+    try {
+        // Atualizar estatísticas dos jogadores
+        await updatePlayerStats(player1Name, player1Score, player2Score);
+        await updatePlayerStats(player2Name, player2Score, player1Score);
+
+
+        if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
+            addGame(player1Name, player1Score, player2Name, player2Score).then(() => {
+                alert('Resultado registrado com sucesso!');
+                
+                document.getElementById('add-game-form').reset();
+                $('#addGameModal').modal('hide');
+
+                populateDropdowns(); // Recarregar dropdowns após registrar o resultado
+                loadPlayersTable(); // Recarregar resultados na tabela
+
+            }).catch(error => {
+                console.error('Erro ao registrar o resultado: ', error);
+                console.error('Erro ao adicionar resultado: ', error);
+            });
+        } else {
+            console.error('Dados do formulário inválidos');
+        }
+    } catch (error) {
+        console.error('Erro ao registrar o resultado: ', error);
+        alert('Erro ao registrar o resultado.');
     }
 }
 
 // Inicializa a página
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
     loadPlayersTable();
     document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
-});
+});*/
+
+document.addEventListener('DOMContentLoaded', loadPlayersTable);
