@@ -9,18 +9,16 @@ const firebaseConfig = {
     measurementId: "G-F8F1DBRS6S"
 };
 
-
-
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
 
+
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
-
-    try{
+    try {
         const playersTableBody = document.getElementById('players-table-body');
         playersTableBody.innerHTML = ''; // Limpar a tabela antes de adicionar novos dados
 
@@ -42,17 +40,12 @@ async function loadPlayersTable() {
             playersTableBody.append(row);
         });
 
-
         // Inicializa a DataTable
-        //$('#players-table').DataTable();
-
-    } catch(error){
-        console.error('Erro ao carregar Lista de Jogadores');
+        $('#players-table').DataTable();
+    } catch (error) {
+        console.error('Erro ao carregar Lista de Jogadores: ', error);
     }
-
 }
-
-
 
 
 
@@ -65,7 +58,5 @@ async function loadPlayersTable() {
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
-    //populateDropdowns();
-    //document.getElementById('game-form').addEventListener('submit', submitResults);
     loadPlayersTable();
 });
