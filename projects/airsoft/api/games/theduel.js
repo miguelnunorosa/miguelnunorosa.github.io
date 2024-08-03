@@ -15,6 +15,8 @@ const db = firebase.firestore();
 
 
 
+
+
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
@@ -41,15 +43,58 @@ async function loadPlayersTable() {
         });
 
         // Inicializa a DataTable após os dados serem carregados
-        $('#players-table').DataTable();
+        $('#game-1x1-table').DataTable();
     } catch (error) {
-        console.error('Erro ao carregar Lista de Jogadores: ', error);
+        console.error('Erro ao carregar Lista de Jogos: ', error);
     }
 }
+
+
+
+// Função para adicionar um novo jogo
+async function addGame(player1Name, player1Score, player2Name, player2Score, gameDate) {
+    try {
+        await db.collection('game-1x1-results').add({
+            player1Name: player1Name,
+            player1Score: player1Score,
+            player2Name: player2Name,
+            player2Score: player2Score
+        });
+        console.log('Jogo adicionado com sucesso');
+        loadPlayersTable();
+    } catch (error) {
+        console.error('Erro ao adicionar Jogo: ', error);
+    }
+}
+
+
+
+// Função para lidar com o envio do formulário de adicionar jogo
+function handleAddGameFormSubmit(event) {
+    event.preventDefault();
+    const player1Name = document.getElementById('player1Name').value;
+    const player1Score = parseInt(document.getElementById('player1Score').value);
+    const player2Name = document.getElementById('player2Name').value;
+    const player2Score = parseInt(document.getElementById('player2Score').value);
+
+    if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score) && gameDate) {
+        addGame(player1Name, player1Score, player2Name, player2Score).then(() => {
+            document.getElementById('add-game-form').reset();
+            $('#addGameModal').modal('hide');
+        }).catch(error => {
+            console.error('Erro ao adicionar Jogo: ', error);
+        });
+    }
+}
+
+
+
+
 
 
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     loadPlayersTable();
+    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
 });
