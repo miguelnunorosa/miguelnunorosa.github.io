@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 // Função para carregar Lista Jogadores
-async function loadPlayersTable() {
+async function loadResults() {
     try {
         console.log('Carregando lista de jogadores...');
         const game1x1Results = document.getElementById('game-1x1-table-body');
@@ -66,7 +66,6 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Jogo adicionado com sucesso');
-        loadPlayersTable();
     } catch (error) {
         console.error('Erro ao adicionar Jogo: ', error);
     }
@@ -159,7 +158,7 @@ async function handleAddGameFormSubmit(event) {
             alert('Resultado registrado com sucesso!');
             document.getElementById('add-game-form').reset();
             $('#addGameModal').modal('hide');
-            await loadPlayersTable(); // Recarregar resultados na tabela após registrar o resultado
+            await loadResults(); // Recarregar resultados na tabela após registrar o resultado
         } else {
             console.error('Dados do formulário inválidos');
         }
@@ -169,10 +168,12 @@ async function handleAddGameFormSubmit(event) {
     }
 }
 
+
+
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
-    loadPlayersTable();
     populateDropdowns();
     document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
+    loadResults();
 });
