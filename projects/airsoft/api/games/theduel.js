@@ -13,10 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-
-
-
-
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
@@ -30,6 +26,7 @@ async function loadPlayersTable() {
             const player1Score = data.player1Score;
             const player2Name = data.player2Name;
             const player2Score = data.player2Score; 
+            const timestamp = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'Data não disponível';
 
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -37,7 +34,7 @@ async function loadPlayersTable() {
                 <td>${player1Score}</td>
                 <td>${player2Score}</td>
                 <td>${player2Name}</td>
-                <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
+                <td>${timestamp}</td>
             `;
             game1x1Results.append(row);
         });
@@ -58,7 +55,8 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
             player1Name: player1Name,
             player1Score: player1Score,
             player2Name: player2Name,
-            player2Score: player2Score
+            player2Score: player2Score,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Jogo adicionado com sucesso');
         loadPlayersTable();
@@ -66,7 +64,6 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
         console.error('Erro ao adicionar Jogo: ', error);
     }
 }
-
 
 
 // Função para lidar com o envio do formulário de adicionar jogo
