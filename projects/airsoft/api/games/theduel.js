@@ -39,14 +39,17 @@ async function loadPlayersTable() {
             game1x1Results.append(row);
         });
 
+        // Destrói qualquer DataTable existente antes de inicializar uma nova
+        if ($.fn.DataTable.isDataTable('#game-1x1-table')) {
+            $('#game-1x1-table').DataTable().destroy();
+        }
+
         // Inicializa a DataTable após os dados serem carregados
         $('#game-1x1-table').DataTable();
     } catch (error) {
         console.error('Erro ao carregar Lista de Jogos: ', error);
     }
 }
-
-
 
 // Função para adicionar um novo jogo
 async function addGame(player1Name, player1Score, player2Name, player2Score) {
@@ -59,12 +62,11 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Jogo adicionado com sucesso');
-        loadPlayersTable();
+        await loadPlayersTable();
     } catch (error) {
         console.error('Erro ao adicionar Jogo: ', error);
     }
 }
-
 
 // Função para lidar com o envio do formulário de adicionar jogo
 function handleAddGameFormSubmit(event) {
@@ -83,12 +85,6 @@ function handleAddGameFormSubmit(event) {
         });
     }
 }
-
-
-
-
-
-
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
