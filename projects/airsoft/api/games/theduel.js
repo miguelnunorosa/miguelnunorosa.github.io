@@ -13,9 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-
-
-
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
@@ -57,48 +54,23 @@ async function loadPlayersTable() {
     }
 }
 
-
-
 // Função para adicionar um novo jogo
 async function addGame(player1Name, player1Score, player2Name, player2Score) {
     try {
         console.log('Adicionando novo jogo...');
-        const player1Name = document.getElementById('player1').value;
-        const player1Score = parseInt(document.getElementById('player1Score').value);
-        const player2Name = document.getElementById('player2').value;
-        const player2Score = parseInt(document.getElementById('player2Score').value);
-
-        try {
-            await db.collection('game-1x1-results').add({
-                player1Name: player1Name,
-                player1Score: player1Score,
-                player2Name: player2Name,
-                player2Score: player2Score,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-
-            // Atualizar estatísticas dos jogadores
-            await updatePlayerStats(player1Name, player1Score, player2Score);
-            await updatePlayerStats(player2Name, player2Score, player1Score);
-
-            alert('Resultado registrado com sucesso!');
-            document.getElementById('game-form').reset();
-            populateDropdowns(); // Recarregar dropdowns após registrar o resultado
-            loadResults(); // Recarregar resultados na tabela
-
-        } catch (error) {
-            console.error('Erro ao registrar o resultado: ', error);
-            alert('Erro ao registrar o resultado.');
-        }
-
+        await db.collection('game-1x1-results').add({
+            player1Name: player1Name,
+            player1Score: player1Score,
+            player2Name: player2Name,
+            player2Score: player2Score,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
         console.log('Jogo adicionado com sucesso');
         await loadPlayersTable();
     } catch (error) {
         console.error('Erro ao adicionar Jogo: ', error);
     }
 }
-
-
 
 // Função para buscar jogadores da coleção "players"
 async function fetchPlayerNames() {
@@ -113,8 +85,6 @@ async function fetchPlayerNames() {
     }
     return players;
 }
-
-
 
 // Função para preencher os dropdowns
 async function populateDropdowns() {
@@ -142,8 +112,6 @@ async function populateDropdowns() {
     player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
 }
 
-
-
 // Função para desativar jogador selecionado no outro dropdown
 function updateDropdowns(changedSelect, otherSelect) {
     const selectedValue = changedSelect.value;
@@ -152,8 +120,6 @@ function updateDropdowns(changedSelect, otherSelect) {
         option.disabled = option.value === selectedValue;
     });
 }
-
-
 
 // Função para atualizar estatísticas dos jogadores
 async function updatePlayerStats(playerName, kills, deaths) {
@@ -174,10 +140,6 @@ async function updatePlayerStats(playerName, kills, deaths) {
     });
 }
 
-
-
-
-
 // Função para lidar com o envio do formulário de adicionar jogo
 async function handleAddGameFormSubmit(event) {
     event.preventDefault();
@@ -192,21 +154,13 @@ async function handleAddGameFormSubmit(event) {
         await updatePlayerStats(player1Name, player1Score, player2Score);
         await updatePlayerStats(player2Name, player2Score, player1Score);
 
-
         if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
-            addGame(player1Name, player1Score, player2Name, player2Score).then(() => {
-                alert('Resultado registrado com sucesso!');
-                
-                document.getElementById('add-game-form').reset();
-                $('#addGameModal').modal('hide');
-
-                populateDropdowns(); // Recarregar dropdowns após registrar o resultado
-                loadPlayersTable(); // Recarregar resultados na tabela
-
-            }).catch(error => {
-                console.error('Erro ao registrar o resultado: ', error);
-                console.error('Erro ao adicionar resultado: ', error);
-            });
+            await addGame(player1Name, player1Score, player2Name, player2Score);
+            alert('Resultado registrado com sucesso!');
+            document.getElementById('add-game-form').reset();
+            $('#addGameModal').modal('hide');
+            populateDropdowns(); // Recarregar dropdowns após registrar o resultado
+            loadPlayersTable(); // Recarregar resultados na tabela
         } else {
             console.error('Dados do formulário inválidos');
         }
@@ -217,10 +171,9 @@ async function handleAddGameFormSubmit(event) {
 }
 
 // Inicializa a página
-/*document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
     loadPlayersTable();
+    populateDropdowns();
     document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
-});*/
-
-document.addEventListener('DOMContentLoaded', loadPlayersTable);
+});
