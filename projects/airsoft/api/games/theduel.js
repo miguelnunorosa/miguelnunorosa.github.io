@@ -207,6 +207,6 @@ async function submitResults(event) {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
     populateDropdowns();
-    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
+    document.getElementById('add-game-form').addEventListener('submit', submitResults);
     loadResults();
 });
