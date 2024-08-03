@@ -19,13 +19,13 @@ async function loadPlayersTable() {
         const game1x1Results = document.getElementById('game-1x1-table-body');
         game1x1Results.innerHTML = ''; // Limpar a tabela antes de adicionar novos dados
 
-        const snapshot = await db.collection('game-1x1-results').get();
+        const snapshot = await db.collection('game-1x1-results').orderBy('timestamp', 'desc').get();
         snapshot.forEach(doc => {
             const data = doc.data();
             const player1Name = data.player1Name;
             const player1Score = data.player1Score;
             const player2Name = data.player2Name;
-            const player2Score = data.player2Score; 
+            const player2Score = data.player2Score;
             const timestamp = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'Data não disponível';
 
             const row = document.createElement('tr');
@@ -88,6 +88,6 @@ function handleAddGameFormSubmit(event) {
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
-    loadPlayersTable();
     document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
+    loadPlayersTable();
 });
