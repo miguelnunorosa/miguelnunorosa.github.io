@@ -15,7 +15,6 @@ const db = firebase.firestore();
 
 
 
-
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
@@ -40,19 +39,12 @@ async function loadPlayersTable() {
             playersTableBody.append(row);
         });
 
-        // Inicializa a DataTable
+        // Inicializa a DataTable após os dados serem carregados
         $('#players-table').DataTable();
     } catch (error) {
         console.error('Erro ao carregar Lista de Jogadores: ', error);
     }
 }
-
-
-
-
-
-
-
 
 
 
