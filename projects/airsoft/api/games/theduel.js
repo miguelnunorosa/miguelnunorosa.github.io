@@ -77,7 +77,7 @@ function handleAddGameFormSubmit(event) {
     const player2Name = document.getElementById('player2Name').value;
     const player2Score = parseInt(document.getElementById('player2Score').value);
 
-    if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score) && gameDate) {
+    if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
         addGame(player1Name, player1Score, player2Name, player2Score).then(() => {
             document.getElementById('add-game-form').reset();
             $('#addGameModal').modal('hide');
