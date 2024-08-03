@@ -16,6 +16,7 @@ const db = firebase.firestore();
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
+        console.log('Carregando lista de jogadores...');
         const game1x1Results = document.getElementById('game-1x1-table-body');
         game1x1Results.innerHTML = ''; // Limpar a tabela antes de adicionar novos dados
 
@@ -41,10 +42,12 @@ async function loadPlayersTable() {
 
         // Destrói qualquer DataTable existente antes de inicializar uma nova
         if ($.fn.DataTable.isDataTable('#game-1x1-table')) {
+            console.log('Destruindo DataTable existente...');
             $('#game-1x1-table').DataTable().destroy();
         }
 
         // Inicializa a DataTable após os dados serem carregados
+        console.log('Inicializando DataTable...');
         $('#game-1x1-table').DataTable();
     } catch (error) {
         console.error('Erro ao carregar Lista de Jogos: ', error);
@@ -54,6 +57,7 @@ async function loadPlayersTable() {
 // Função para adicionar um novo jogo
 async function addGame(player1Name, player1Score, player2Name, player2Score) {
     try {
+        console.log('Adicionando novo jogo...');
         await db.collection('game-1x1-results').add({
             player1Name: player1Name,
             player1Score: player1Score,
@@ -71,6 +75,7 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
 // Função para lidar com o envio do formulário de adicionar jogo
 function handleAddGameFormSubmit(event) {
     event.preventDefault();
+    console.log('Formulário de adicionar jogo enviado...');
     const player1Name = document.getElementById('player1Name').value;
     const player1Score = parseInt(document.getElementById('player1Score').value);
     const player2Name = document.getElementById('player2Name').value;
@@ -83,11 +88,14 @@ function handleAddGameFormSubmit(event) {
         }).catch(error => {
             console.error('Erro ao adicionar Jogo: ', error);
         });
+    } else {
+        console.error('Dados do formulário inválidos');
     }
 }
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
+    console.log('Página carregada, inicializando...');
     loadPlayersTable();
+    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
 });
