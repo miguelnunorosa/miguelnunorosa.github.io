@@ -13,6 +13,9 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app);
 
+
+
+
 // Função para carregar resultados na tabela
 async function loadResults() {
     const tableBody = document.querySelector('#results-table tbody');
