@@ -149,6 +149,36 @@ async function handleAddGameFormSubmit(event) {
     const player2Score = parseInt(document.getElementById('player2Score').value);
 
     try {
+        // Atualizar estatísticas dos jogadores
+        await updatePlayerStats(player1Name, player1Score, player2Score);
+        await updatePlayerStats(player2Name, player2Score, player1Score);
+
+        if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
+            await addGame(player1Name, player1Score, player2Name, player2Score);
+            alert('Resultado registrado com sucesso!');
+            document.getElementById('add-game-form').reset();
+            $('#addGameModal').modal('hide');
+            await loadResults(); // Recarregar resultados na tabela após registrar o resultado
+        } else {
+            console.error('Dados do formulário inválidos');
+        }
+    } catch (error) {
+        console.error('Erro ao registrar o resultado: ', error);
+        alert('Erro ao registrar o resultado.');
+    }
+}
+
+
+
+async function submitResults(event) {
+    event.preventDefault();
+
+    const player1Name = document.getElementById('player1Name').value;
+    const player1Score = parseInt(document.getElementById('player1Score').value);
+    const player2Name = document.getElementById('player2Name').value;
+    const player2Score = parseInt(document.getElementById('player2Score').value);
+
+    try {
         // Registrar resultado do jogo
         await db.collection('game-1x1-results').add({
             player1Name: player1Name,
@@ -170,33 +200,7 @@ async function handleAddGameFormSubmit(event) {
         console.error('Erro ao registrar o resultado: ', error);
         alert('Erro ao registrar o resultado.');
     }
-
-
-    /*const player1Name = document.getElementById('player1Name').value;
-    const player1Score = parseInt(document.getElementById('player1Score').value);
-    const player2Name = document.getElementById('player2Name').value;
-    const player2Score = parseInt(document.getElementById('player2Score').value);
-
-    try {
-        // Atualizar estatísticas dos jogadores
-        await updatePlayerStats(player1Name, player1Score, player2Score);
-        await updatePlayerStats(player2Name, player2Score, player1Score);
-
-        if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
-            await addGame(player1Name, player1Score, player2Name, player2Score);
-            alert('Resultado registrado com sucesso!');
-            document.getElementById('add-game-form').reset();
-            $('#addGameModal').modal('hide');
-            await loadResults(); // Recarregar resultados na tabela após registrar o resultado
-        } else {
-            console.error('Dados do formulário inválidos');
-        }
-    } catch (error) {
-        console.error('Erro ao registrar o resultado: ', error);
-        alert('Erro ao registrar o resultado.');
-    }*/
 }
-
 
 
 // Inicializa a página
