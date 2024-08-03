@@ -47,8 +47,38 @@ async function loadPlayersTable() {
 }
 
 
+// Função para adicionar um novo jogador
+async function addPlayer(playerName) {
+    try {
+        await db.collection('players').add({
+            playerName: playerName,
+            numberOfKills: 0,
+            numberOfDeaths: 0
+        });
+        loadPlayersTable();
+    } catch (error) {
+        console.error('Erro ao adicionar Jogador: ', error);
+    }
+}
+
+
+// Função para lidar com o envio do formulário de adicionar jogador
+function handleAddPlayerFormSubmit(event) {
+    event.preventDefault();
+    const playerName = document.getElementById('playerName').value;
+    if (playerName) {
+        addPlayer(playerName);
+        document.getElementById('add-player-form').reset();
+        $('#addPlayerModal').modal('hide');
+    }
+}
+
+
+
+
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     loadPlayersTable();
+    document.getElementById('add-player-form').addEventListener('submit', handleAddPlayerFormSubmit);
 });

@@ -33,8 +33,8 @@ async function loadPlayersTable() {
             row.innerHTML = `
                 <td>${data.player1Name}</td>
                 <td>${data.player1Score}</td>
-                <td>${data.player2Name}</td>
                 <td>${data.player2Score}</td>
+                <td>${data.player2Name}</td>
                 <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
             `;
             game1x1Results.append(row);
