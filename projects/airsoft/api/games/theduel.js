@@ -66,6 +66,7 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Jogo adicionado com sucesso');
+        document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
         await loadPlayersTable();
     } catch (error) {
         console.error('Erro ao adicionar Jogo: ', error);
@@ -175,5 +176,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
     loadPlayersTable();
     populateDropdowns();
-    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
+    
 });
