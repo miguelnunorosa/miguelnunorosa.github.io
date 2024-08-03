@@ -33,10 +33,10 @@ async function loadPlayersTable() {
 
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${data.player1Name}</td>
-                <td>${data.player1Score}</td>
-                <td>${data.player2Score}</td>
-                <td>${data.player2Name}</td>
+                <td>${player1Name}</td>
+                <td>${player1Score}</td>
+                <td>${player2Score}</td>
+                <td>${player2Name}</td>
                 <td>${new Date(data.timestamp.seconds * 1000).toLocaleString()}</td>
             `;
             game1x1Results.append(row);
@@ -52,7 +52,7 @@ async function loadPlayersTable() {
 
 
 // Função para adicionar um novo jogo
-async function addGame(player1Name, player1Score, player2Name, player2Score, gameDate) {
+async function addGame(player1Name, player1Score, player2Name, player2Score) {
     try {
         await db.collection('game-1x1-results').add({
             player1Name: player1Name,
