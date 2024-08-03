@@ -13,6 +13,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+
+
+
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
@@ -54,17 +57,40 @@ async function loadPlayersTable() {
     }
 }
 
+
+
 // Função para adicionar um novo jogo
 async function addGame(player1Name, player1Score, player2Name, player2Score) {
     try {
         console.log('Adicionando novo jogo...');
-        await db.collection('game-1x1-results').add({
-            player1Name: player1Name,
-            player1Score: player1Score,
-            player2Name: player2Name,
-            player2Score: player2Score,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        });
+        const player1Name = document.getElementById('player1').value;
+        const player1Score = parseInt(document.getElementById('player1Score').value);
+        const player2Name = document.getElementById('player2').value;
+        const player2Score = parseInt(document.getElementById('player2Score').value);
+
+        try {
+            await db.collection('game-1x1-results').add({
+                player1Name: player1Name,
+                player1Score: player1Score,
+                player2Name: player2Name,
+                player2Score: player2Score,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            // Atualizar estatísticas dos jogadores
+            await updatePlayerStats(player1Name, player1Score, player2Score);
+            await updatePlayerStats(player2Name, player2Score, player1Score);
+
+            alert('Resultado registrado com sucesso!');
+            document.getElementById('game-form').reset();
+            populateDropdowns(); // Recarregar dropdowns após registrar o resultado
+            loadResults(); // Recarregar resultados na tabela
+
+        } catch (error) {
+            console.error('Erro ao registrar o resultado: ', error);
+            alert('Erro ao registrar o resultado.');
+        }
+
         console.log('Jogo adicionado com sucesso');
         await loadPlayersTable();
     } catch (error) {
