@@ -74,6 +74,22 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
 
 
 
+// Função para buscar jogadores da coleção "players"
+async function fetchPlayerNames() {
+    const players = [];
+    try {
+        const snapshot = await db.collection('players').get();
+        snapshot.forEach(doc => {
+            players.push(doc.data().playerName); // Ajustado para usar playerName
+        });
+    } catch (error) {
+        console.error('Erro ao buscar nomes de jogadores: ', error);
+    }
+    return players;
+}
+
+
+
 // Função para preencher os dropdowns
 async function populateDropdowns() {
     const playerNames = await fetchPlayerNames();
