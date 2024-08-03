@@ -13,8 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-
-
 // Função para carregar Lista Jogadores
 async function loadPlayersTable() {
     try {
@@ -46,7 +44,6 @@ async function loadPlayersTable() {
     }
 }
 
-
 // Função para adicionar um novo jogador
 async function addPlayer(playerName) {
     try {
@@ -55,27 +52,26 @@ async function addPlayer(playerName) {
             numberOfKills: 0,
             numberOfDeaths: 0
         });
+        console.log('Jogador adicionado com sucesso');
         loadPlayersTable();
     } catch (error) {
         console.error('Erro ao adicionar Jogador: ', error);
     }
 }
 
-
 // Função para lidar com o envio do formulário de adicionar jogador
 function handleAddPlayerFormSubmit(event) {
     event.preventDefault();
     const playerName = document.getElementById('playerName').value;
     if (playerName) {
-        addPlayer(playerName);
-        document.getElementById('add-player-form').reset();
-        $('#addPlayerModal').modal('hide');
+        addPlayer(playerName).then(() => {
+            document.getElementById('add-player-form').reset();
+            $('#addPlayerModal').modal('hide');
+        }).catch(error => {
+            console.error('Erro ao adicionar Jogador: ', error);
+        });
     }
 }
-
-
-
-
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
