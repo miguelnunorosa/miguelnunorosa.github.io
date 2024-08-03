@@ -66,8 +66,6 @@ async function addGame(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Jogo adicionado com sucesso');
-        document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
-        await loadPlayersTable();
     } catch (error) {
         console.error('Erro ao adicionar Jogo: ', error);
     }
@@ -160,8 +158,7 @@ async function handleAddGameFormSubmit(event) {
             alert('Resultado registrado com sucesso!');
             document.getElementById('add-game-form').reset();
             $('#addGameModal').modal('hide');
-            populateDropdowns(); // Recarregar dropdowns após registrar o resultado
-            loadPlayersTable(); // Recarregar resultados na tabela
+            await loadPlayersTable(); // Recarregar resultados na tabela após registrar o resultado
         } else {
             console.error('Dados do formulário inválidos');
         }
@@ -176,5 +173,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Página carregada, inicializando...');
     loadPlayersTable();
     populateDropdowns();
-    
+    document.getElementById('add-game-form').addEventListener('submit', handleAddGameFormSubmit);
 });
