@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGMT | API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../settings/styles.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+    <!-- Menu Superior -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Airsoft Game Master Tool | API</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Jogos </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Jogo: Duelo 1x1</a></li>
+                            <li><a class="dropdown-item" href="#">Jogo 2</a></li>
+                            <li><a class="dropdown-item" href="#">Jogo 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Definições </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Jogadores</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Botão Adicionar Jogo -->
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="text-center">Resultados de Jogos 1x1</h3>
+            <button id="add-game-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addGameModal">Adicionar</button>
+        </div>
+        <div class="table-responsive">
+            <table id="game-1x1-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Jogador 1</th>
+                        <th>Pontuação Jogador 1</th>
+                        <th>Pontuação Jogador 2</th>
+                        <th>Jogador 2</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="game-1x1-table-body">
+                    <!-- Dados dos jogadores serão inseridos aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Modal Adicionar Jogo -->
+    <div class="modal fade" id="addGameModal" tabindex="-1" aria-labelledby="addGameModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addGameModalLabel">Adicionar Jogo 1x1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-game-form">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend class="text-center">Jogador 1</legend>
+                                    <div class="mb-3">
+                                        <label for="player1Name" class="form-label">Nome</label>
+                                        <select class="form-select" id="player1Name" required></select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="player1Score" class="form-label">Pontuação</label>
+                                        <input type="number" class="form-control" id="player1Score" required>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <legend class="text-center">Jogador 2</legend>
+                                    <div class="mb-3">
+                                        <label for="player2Name" class="form-label">Nome</label>
+                                        <select class="form-select" id="player2Name" required></select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="player2Score" class="form-label">Pontuação</label>
+                                        <input type="number" class="form-control" id="player2Score" required>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+
+
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script defer src="gameduel.js"></script>
+</body>
+</html>
