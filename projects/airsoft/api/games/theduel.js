@@ -41,6 +41,11 @@ async function loadGameResults() {
             game1x1Results.append(row);
         });
 
+        // Destruir a DataTable existente antes de reinicializá-la
+        if ($.fn.DataTable.isDataTable('#game-1x1-table')) {
+            $('#game-1x1-table').DataTable().destroy();
+        }
+
         // Inicializa a DataTable após os dados serem carregados
         $('#game-1x1-table').DataTable();
     } catch (error) {
@@ -61,7 +66,7 @@ async function addResult(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Resultado adicionado com sucesso');
-        loadPlayersTable();
+        loadGameResults();
     } catch (error) {
         console.error('Erro ao adicionar Resultado: ', error);
     }
@@ -141,7 +146,7 @@ async function updatePlayerStats(playerName, kills, deaths) {
 
 
 // Função para lidar com o envio do formulário de adicionar resultado
-async function handleAddPlayerFormSubmit(event) {
+async function handleAddResultFormSubmit(event) {
     event.preventDefault();
 
     const player1Name = document.getElementById('player1Name').value;
@@ -149,20 +154,20 @@ async function handleAddPlayerFormSubmit(event) {
     const player2Name = document.getElementById('player2Name').value;
     const player2Score = parseInt(document.getElementById('player2Score').value);
 
-
     try {
         // Atualizar estatísticas dos jogadores
         await updatePlayerStats(player1Name, player1Score, player2Score);
         await updatePlayerStats(player2Name, player2Score, player1Score);
 
         if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
-            await addGame(player1Name, player1Score, player2Name, player2Score);
-            
+            await addResult(player1Name, player1Score, player2Name, player2Score);
+
             alert('Resultado registrado com sucesso!');
             document.getElementById('add-game-form').reset();
-            
             $('#addGameModal').modal('hide');
-            //await loadGameResults(); // Recarregar resultados na tabela após registrar o resultado
+
+            // Recarregar resultados na tabela após registrar o resultado
+            await loadGameResults();
         } else {
             console.error('Erro ao adicionar Resultado');
         }
@@ -176,8 +181,9 @@ async function handleAddPlayerFormSubmit(event) {
 
 
 
+
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
     loadGameResults();
-    document.getElementById('add-game-form').addEventListener('submit', handleAddPlayerFormSubmit);
+    document.getElementById('add-game-form').addEventListener('submit', handleAddResultFormSubmit);
 });
