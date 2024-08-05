@@ -12,9 +12,6 @@ const firebaseConfig = {
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const insertOkFlag = false;
-
-
 
 // Função para carregar Lista Jogadores
 async function loadGameResults() {
@@ -58,7 +55,6 @@ async function loadGameResults() {
     }
 }
 
-
 // Função para buscar jogadores da coleção "players"
 async function fetchPlayerNames() {
     const players = [];
@@ -72,7 +68,6 @@ async function fetchPlayerNames() {
     }
     return players;
 }
-
 
 // Função para preencher os dropdowns
 async function populateDropdowns() {
@@ -100,7 +95,6 @@ async function populateDropdowns() {
     player2Select.addEventListener('change', () => updateDropdowns(player2Select, player1Select));
 }
 
-
 // Função para desativar jogador selecionado no outro dropdown
 function updateDropdowns(changedSelect, otherSelect) {
     const selectedValue = changedSelect.value;
@@ -114,7 +108,6 @@ function updateDropdowns(changedSelect, otherSelect) {
     });
 }
 
-
 // Função para adicionar um novo resultado
 async function addResult(player1Name, player1Score, player2Name, player2Score) {
     try {
@@ -126,17 +119,17 @@ async function addResult(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Resultado adicionado com sucesso');
-        insertOkFlag = true;
 
         // Atualizar estatísticas dos jogadores
         await updatePlayerStats(player1Name, player1Score, player2Score);
         await updatePlayerStats(player2Name, player2Score, player1Score);
 
+        // Atualizar os resultados após a inserção
+        await loadGameResults();
     } catch (error) {
         console.error('Erro ao adicionar Resultado: ', error);
     }
 }
-
 
 // Função para atualizar estatísticas dos jogadores
 async function updatePlayerStats(playerName, kills, deaths) {
@@ -157,7 +150,6 @@ async function updatePlayerStats(playerName, kills, deaths) {
     });
 }
 
-
 // Função para lidar com o envio do formulário de adicionar resultado
 async function handleAddResultFormSubmit(event) {
     event.preventDefault();
@@ -171,23 +163,20 @@ async function handleAddResultFormSubmit(event) {
     try {
         if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
             await addResult(player1Name, player1Score, player2Name, player2Score);
-            
-            $('#addGameModal').modal('hide'); // Fechar o modal
+
+            // Fechar o modal após a atualização da tabela
+            $('#addGameModal').modal('hide');
             
             // Resetar o formulário
             document.getElementById('add-game-form').reset();
             console.log('Formulário enviado e modal fechado.');
-            if(insertOkFlag === true ) loadGameResults();
         } else {
             console.error('Erro ao adicionar Resultado: Verifique os dados inseridos.');
         }
     } catch (error) {
         console.error('Erro ao adicionar resultados: ', error);
     }
-
 }
-
-
 
 // Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
