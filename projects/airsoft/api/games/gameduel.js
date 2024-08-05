@@ -1,6 +1,6 @@
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCyj-d_dhgMXHqKkG0BtneCAask84igu34",
+    apiKey: "AIzaSyCyj-d_dhgMXHqK0BtneCAask84igu34",
     authDomain: "airsoft-gamemaster-tool.firebaseapp.com",
     projectId: "airsoft-gamemaster-tool",
     storageBucket: "airsoft-gamemaster-tool.appspot.com",
@@ -145,9 +145,13 @@ async function updatePlayerStats(playerName, kills, deaths) {
     const doc = snapshot.docs[0];
     const playerId = doc.id;
 
+    // Usar let em vez de const aqui
+    let updatedKills = (doc.data().numberOfKills || 0) + kills;
+    let updatedDeaths = (doc.data().numberOfDeaths || 0) + deaths;
+
     await db.collection('players').doc(playerId).update({
-        numberOfKills: (doc.data().numberOfKills || 0) + kills,
-        numberOfDeaths: (doc.data().numberOfDeaths || 0) + deaths
+        numberOfKills: updatedKills,
+        numberOfDeaths: updatedDeaths
     });
 }
 
