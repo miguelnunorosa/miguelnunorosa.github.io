@@ -125,6 +125,7 @@ async function addResult(player1Name, player1Score, player2Name, player2Score) {
         await updatePlayerStats(player2Name, player2Score, player1Score);
 
         // Atualizar os resultados após a inserção
+        console.log('Carregando os resultados após a inserção...');
         await loadGameResults();
     } catch (error) {
         console.error('Erro ao adicionar Resultado: ', error);
@@ -164,7 +165,7 @@ async function handleAddResultFormSubmit(event) {
         if (player1Name && player2Name && !isNaN(player1Score) && !isNaN(player2Score)) {
             await addResult(player1Name, player1Score, player2Name, player2Score);
 
-            // Fechar o modal após a atualização da tabela
+            console.log('Fechando o modal após a atualização da tabela...');
             $('#addGameModal').modal('hide');
             
             // Resetar o formulário
