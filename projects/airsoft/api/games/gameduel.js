@@ -119,8 +119,7 @@ async function addResult(player1Name, player1Score, player2Name, player2Score) {
             player1Score: player1Score,
             player2Name: player2Name,
             player2Score: player2Score,
-            //timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            timestamp: firebase.firestore.Timestamp.now()
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Resultado adicionado com sucesso');
 
