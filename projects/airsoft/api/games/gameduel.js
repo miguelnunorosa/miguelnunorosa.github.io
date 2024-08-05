@@ -12,6 +12,7 @@ const firebaseConfig = {
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const insertOkFlag = false;
 
 
 
@@ -125,6 +126,7 @@ async function addResult(player1Name, player1Score, player2Name, player2Score) {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         console.log('Resultado adicionado com sucesso');
+        insertOkFlag = true;
 
         // Atualizar estatísticas dos jogadores
         await updatePlayerStats(player1Name, player1Score, player2Score);
@@ -175,7 +177,7 @@ async function handleAddResultFormSubmit(event) {
             // Resetar o formulário
             document.getElementById('add-game-form').reset();
             console.log('Formulário enviado e modal fechado.');
-            loadGameResults();
+            if(insertOkFlag === true ) loadGameResults();
         } else {
             console.error('Erro ao adicionar Resultado: Verifique os dados inseridos.');
         }
