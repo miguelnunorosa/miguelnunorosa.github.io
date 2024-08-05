@@ -52,7 +52,7 @@ async function loadGameResults() {
         setTimeout(() => {
             console.log('Inicializando DataTable...');
             $('#game-1x1-table').DataTable();
-        }, 100); // Atraso de 100ms
+        }, 500); // Atraso de 500ms
 
         console.log('Resultados dos jogos carregados com sucesso.');
     } catch (error) {
