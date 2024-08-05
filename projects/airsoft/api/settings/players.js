@@ -19,7 +19,7 @@ async function loadPlayersTable() {
         const playersTableBody = document.getElementById('players-table-body');
         playersTableBody.innerHTML = ''; // Limpar a tabela antes de adicionar novos dados
 
-        const snapshot = await db.collection('players').get();
+        const snapshot = await db.collection('players').orderBy('playerName', 'asc').get();
         snapshot.forEach(doc => {
             const playerData = doc.data();
             const playerName = playerData.playerName;
