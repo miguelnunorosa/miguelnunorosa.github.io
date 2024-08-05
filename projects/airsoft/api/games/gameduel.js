@@ -13,6 +13,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+let dataTable; // Declare a variable to store the DataTable instance
+
 // Função para carregar Lista Jogadores
 async function loadGameResults() {
     console.log('Carregando resultados dos jogos...');
@@ -43,13 +45,13 @@ async function loadGameResults() {
         });
 
         // Destruir a DataTable existente antes de reinicializá-la
-        if ($.fn.DataTable.isDataTable('#game-1x1-table')) {
+        if (dataTable) {
             console.log('Destruindo DataTable existente...');
-            $('#game-1x1-table').DataTable().destroy();
+            dataTable.destroy();
         }
 
         // Inicializa a DataTable após os dados serem carregados
-        $('#game-1x1-table').DataTable();
+        dataTable = $('#game-1x1-table').DataTable();
         console.log('Resultados dos jogos carregados com sucesso.');
     } catch (error) {
         console.error('Erro ao carregar Lista de Jogos: ', error);
