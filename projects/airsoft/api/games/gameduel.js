@@ -1,9 +1,9 @@
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCyj-d_dhgMXHqK0BtneCAask84igu34",
+    apiKey: "AIzaSyCyj-d_dhgMXHqKkG0BtneCAask84igu34",
     authDomain: "airsoft-gamemaster-tool.firebaseapp.com",
     projectId: "airsoft-gamemaster-tool",
-    storageBucket: "airsoft-gamemaster-tool.appspot.com",
+    storageBucket: "airsoft-gamemaster-tool",
     messagingSenderId: "651326007639",
     appId: "1:651326007639:web:50975fdc4e337c7a5d7612",
     measurementId: "G-F8F1DBRS6S"
@@ -49,11 +49,7 @@ async function loadGameResults() {
         }
 
         // Inicializa a DataTable após os dados serem carregados
-        setTimeout(() => {
-            console.log('Inicializando DataTable...');
-            $('#game-1x1-table').DataTable();
-        }, 500); // Atraso de 500ms
-
+        $('#game-1x1-table').DataTable();
         console.log('Resultados dos jogos carregados com sucesso.');
     } catch (error) {
         console.error('Erro ao carregar Lista de Jogos: ', error);
