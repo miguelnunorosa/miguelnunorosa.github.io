@@ -44,11 +44,16 @@ async function loadGameResults() {
 
         // Destruir a DataTable existente antes de reinicializá-la
         if ($.fn.DataTable.isDataTable('#game-1x1-table')) {
+            console.log('Destruindo DataTable existente...');
             $('#game-1x1-table').DataTable().destroy();
         }
 
         // Inicializa a DataTable após os dados serem carregados
-        $('#game-1x1-table').DataTable();
+        setTimeout(() => {
+            console.log('Inicializando DataTable...');
+            $('#game-1x1-table').DataTable();
+        }, 100); // Atraso de 100ms
+
         console.log('Resultados dos jogos carregados com sucesso.');
     } catch (error) {
         console.error('Erro ao carregar Lista de Jogos: ', error);
