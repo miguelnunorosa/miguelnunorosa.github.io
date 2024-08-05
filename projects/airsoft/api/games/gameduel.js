@@ -18,13 +18,18 @@ let dataTable; // Declare a variable to store the DataTable instance
 // Função para carregar Lista Jogadores
 async function loadGameResults() {
     console.log('Carregando resultados dos jogos...');
-    populateDropdowns();
+
+    // Limpar a tabela antes de adicionar novos dados
+    const game1x1Results = document.getElementById('game-1x1-table-body');
+    game1x1Results.innerHTML = '';
 
     try {
-        const game1x1Results = document.getElementById('game-1x1-table-body');
-        game1x1Results.innerHTML = ''; // Limpar a tabela antes de adicionar novos dados
+        // Consultar e ordenar os resultados
+        const snapshot = await db.collection('game-1x1-results')
+            .orderBy('timestamp', 'desc')
+            .get();
 
-        const snapshot = await db.collection('game-1x1-results').orderBy('timestamp', 'desc').get();
+        // Processar os resultados da consulta
         snapshot.forEach(doc => {
             const data = doc.data();
             const player1Name = data.player1Name;
@@ -50,13 +55,16 @@ async function loadGameResults() {
             dataTable.destroy();
         }
 
-        // Inicializa a DataTable após os dados serem carregados
+        // Inicializar a DataTable
+        console.log('Inicializando DataTable...');
         dataTable = $('#game-1x1-table').DataTable();
+
         console.log('Resultados dos jogos carregados com sucesso.');
     } catch (error) {
-        console.error('Erro ao carregar Lista de Jogos: ', error);
+        console.error('Erro ao carregar os resultados dos jogos:', error);
     }
 }
+
 
 // Função para buscar jogadores da coleção "players"
 async function fetchPlayerNames() {
