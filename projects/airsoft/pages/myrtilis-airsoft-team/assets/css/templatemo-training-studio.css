@@ -665,26 +665,6 @@ features
 ---------------------------------------------
 */
 
-.image-gallery{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 50rem;
-  margin-inline: auto;
-}
-
-.image-gallery > img{
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  transition: scale 350ms ease, opacity 350ms linear;
-}
-
-.image-gallery:has(img:hover) img:not(:hover){
-  scale: .8;
-  opacity: .7;
-}
-
-
 #features {
   margin-bottom: 80px;
 }
