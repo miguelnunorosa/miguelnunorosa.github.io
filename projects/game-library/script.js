@@ -12,3 +12,27 @@ const firebaseConfig = {
 // Inicializa o Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+
+
+// Referência à coleção "playstation2"
+var ps2Collection = db.collection("playstation2");
+
+// Obter dados da coleção e preencher a tabela
+ps2Collection.get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // Para cada documento, obtenha os dados
+        var data = doc.data();
+        // Crie uma nova linha na tabela com os dados
+        var newRow = `
+            <tr>
+                <td>${data.title}</td>
+                <td>${data.isDigital}</td>
+                <td>${data.isComplete}</td>
+            </tr>
+        `;
+        // Adicione a nova linha ao corpo da tabela
+        $('#example tbody').append(newRow);
+    });
+}).catch((error) => {
+    console.error("Erro ao obter documentos: ", error);
+});
