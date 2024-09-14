@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const content = document.getElementById('content');
+    const content = document.getElementById('main-banner');
 
     const pageContent = `
         <div class="main-banner" id="top">
