@@ -654,6 +654,12 @@ banner
   font-weight: 900;
 }
 
+.logo-team-first-page{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #999a6a;
+}
 
 
 /*
