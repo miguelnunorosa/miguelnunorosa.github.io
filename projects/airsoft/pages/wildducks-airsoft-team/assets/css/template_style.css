@@ -655,12 +655,10 @@ banner
 }
 
 #logo-team-first-page {
-  background-image: url('../images/logo_team.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   width: 100%;
   height: 100vh;
+  object-fit: contain; /* Para garantir que a imagem se ajuste ao container sem cortar */
+  object-position: center; /* Centraliza a imagem */
   background-color: #999a6a;
 }
 
