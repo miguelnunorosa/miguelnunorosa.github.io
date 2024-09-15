@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <!--<video autoplay muted loop id="bg-video">
                 <source src="assets/images/gym-video.mp4" type="video/mp4" />
             </video>-->
-            <img src="./teste/assets/images/logo_team.png" id="logo-team-first-page">
+            <img src="/teste/assets/images/logo_team.png" id="logo-team-first-page">
         </div>
     `;
 
