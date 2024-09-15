@@ -10,18 +10,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 <!-- ***** Logo Start ***** -->
                 <a href="index.html" class="logo">Wild Ducks <em> Airsoft Team</em></a>
                 <!-- ***** Logo End ***** -->
+                
                 <!-- ***** Menu Start ***** -->
                 <ul class="nav">
-                <li class="scroll-to-section"><a href="#top">Home</a></li>
-                <li class="scroll-to-section"><a href="#features">Quem Somos</a></li>
-                <li class="scroll-to-section"><a href="#our-classes">Equipa</a></li>
-                <li class="scroll-to-section"><a href="#contact-us">Contacto</a></li>
-                <li class="scroll-to-section"><a href="#"></a></li>
+                    <li class="scroll-to-section"><a href="#top">Home</a></li>
+                    <li class="scroll-to-section"><a href="#features">Quem Somos</a></li>
+                    <li class="scroll-to-section"><a href="#our-classes">Equipa</a></li>
+                    <li class="scroll-to-section"><a href="#contact-us">Contacto</a></li>
+                    <li class="scroll-to-section"><a href="#"></a></li>
                 </ul>
-                <a class='menu-trigger'>
-                <span>Menu</span>
-                </a>
+                <a class='menu-trigger'> <span>Menu</span> </a>
                 <!-- ***** Menu End ***** -->
+
             </nav>
             </div>
         </div>
