@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const content = document.getElementById('content');
+    const content = document.getElementById('about');
 
     const pageContent = `
        <section class="section" id="features">
