@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const content = document.getElementById('content');
+    const content = document.getElementById('menuTop');
 
     const pageContent = `
        <header class="header-area header-sticky">
