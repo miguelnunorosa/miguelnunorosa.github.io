@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li class="scroll-to-section"><a href="#features">Quem Somos</a></li>
                 <li class="scroll-to-section"><a href="#our-classes">Equipa</a></li>
                 <li class="scroll-to-section"><a href="#contact-us">Contacto</a></li>
-                <li class="scroll-to-section"><a href="#"></a></li>
+                
                 </ul>
                 <a class='menu-trigger'>
                 <span>Menu</span>
