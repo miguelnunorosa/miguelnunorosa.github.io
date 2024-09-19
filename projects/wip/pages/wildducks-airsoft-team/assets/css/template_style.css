@@ -211,13 +211,7 @@ header
   color: #232d39!important;
 }
 
-.background-header .main-nav .nav li:last-child a {
-  color: #fff !important;
-}
 
-.background-header .main-nav .nav li:last-child a:hover {
-  color: #fff!important;
-}
 
 .background-header .main-nav .nav li:hover a {
   color: #ed563b!important;
