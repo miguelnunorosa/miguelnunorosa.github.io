@@ -318,7 +318,7 @@ header
   line-height: 20px;
 }
 
-.header-area .main-nav .nav li:last-child a:hover {
+.header-area .main-nav .nav  a:hover {
   background-color: #f9735b;
   opacity: 1;
 }
