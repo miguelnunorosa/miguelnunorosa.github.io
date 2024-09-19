@@ -320,7 +320,7 @@ header
 
 .header-area .main-nav .nav li:last-child a:hover {
   background-color: #f9735b;
-  opacity: 0;
+  opacity: 1;
 }
 
 .header-area .main-nav .nav li:hover a,
