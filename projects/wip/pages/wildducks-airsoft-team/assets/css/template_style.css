@@ -686,6 +686,10 @@ td:hover, #teamMemberPhoto:hover {
   height: auto;
 }
 
+#modalMemberPhoto{
+  text-align: center;
+}
+
 
 #features {
   margin-bottom: 80px;
