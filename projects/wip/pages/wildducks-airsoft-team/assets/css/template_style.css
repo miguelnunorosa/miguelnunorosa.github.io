@@ -693,6 +693,10 @@ td:hover, #teamMemberPhoto:hover {
   /*width: 50%;*/
 }
 
+.centerNickname{
+  text-align: center;
+}
+
 
 #features {
   margin-bottom: 80px;
