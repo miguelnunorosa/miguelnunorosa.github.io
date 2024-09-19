@@ -686,8 +686,11 @@ td:hover, #teamMemberPhoto:hover {
   height: auto;
 }
 
-#modalMemberPhoto{
-  text-align: center;
+.modalMemberPhoto{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 
