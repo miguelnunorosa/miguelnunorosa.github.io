@@ -705,7 +705,7 @@ features
   margin: 10px; /* Espaçamento entre as imagens */
 }
 
-.tableTeamMembers{
+.tableTeamMembers td{
   align-items: center;
 }
 
