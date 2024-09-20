@@ -705,7 +705,7 @@ features
   margin: 10px; /* Espaçamento entre as imagens */
 }
 
-.teamMemberDesc{
+td {
   text-align: center;
 }
 
