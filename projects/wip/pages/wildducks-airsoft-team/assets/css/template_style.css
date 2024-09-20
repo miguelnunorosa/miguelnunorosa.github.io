@@ -678,9 +678,12 @@ features
 	background-color: #e3e3e3;
 }
 
-.teamMemberPhoto{
-  width: 100px;
-  height: 100px;
+.teamMemberPhoto  img {
+    width: 200px; /* 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    margin: 10px; 
 }*/
 
 /*#teamMember {
@@ -699,12 +702,19 @@ features
   height: 100px;
 }
 
-.imgMemberPhoto img {
+
+.teamMemberPhoto  img {
   width: 200px; /* Define a largura padrão para as imagens */
   height: 200px; /* Define a altura padrão para as imagens */
   object-fit: cover; /* Garante que a imagem preencha o container mantendo a proporção */
   border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
   margin: 10px; /* Espaçamento entre as imagens */
+}
+
+
+.imgMemberPhoto{
+  width: 150px;
+  height: 150px;
 }
 
 
