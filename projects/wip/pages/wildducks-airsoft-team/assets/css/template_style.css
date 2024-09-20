@@ -697,12 +697,16 @@ features
 }*/
 
 .tableTeamMembers img{
-  text-align: center;
-  /*width: 200px;
+  /*text-align: center;
+  width: 200px;
   height: 200px;*/
   object-fit: cover; /* Garante que a imagem preencha o container mantendo a proporção */
   border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
   margin: 10px; /* Espaçamento entre as imagens */
+}
+
+.tableTeamMembers{
+  align-items: center;
 }
 
 
