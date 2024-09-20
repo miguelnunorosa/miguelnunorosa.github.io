@@ -676,6 +676,9 @@ features
 
 td:hover, #teamMemberPhoto:hover {
 	background-color: #e3e3e3;
+}
+
+.teamMemberPhoto{
   width: 100px;
   height: 100px;
 }
