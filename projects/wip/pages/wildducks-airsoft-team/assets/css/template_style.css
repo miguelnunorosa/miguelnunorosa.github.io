@@ -702,7 +702,7 @@ features
   height: 200px;*/
   object-fit: cover; /* Garante que a imagem preencha o container mantendo a proporção */
   border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
-  margin: 5px; /* Espaçamento entre as imagens */
+  margin: 10px; /* Espaçamento entre as imagens */
 }
 
 
