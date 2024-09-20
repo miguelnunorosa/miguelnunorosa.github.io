@@ -674,21 +674,23 @@ features
 ---------------------------------------------
 */
 
-td:hover, #teamMemberPhoto:hover {
+/*td:hover, #teamMemberPhoto:hover {
 	background-color: #e3e3e3;
 }
 
 .teamMemberPhoto{
   width: 100px;
   height: 100px;
-}
+}*/
 
 #teamMember {
 	text-align: center;
   max-width: 80%;
   max-height: 80%;
-  width: auto;
-  height: auto;
+  /*width: auto;
+  height: auto;*/
+  width: 100px;
+  height: 100px;
 }
 
 .modalMemberPhoto{
