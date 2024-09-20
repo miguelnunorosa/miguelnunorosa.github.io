@@ -694,9 +694,10 @@ features
 }*/
 
 .tableTeamMembers {
-  width: 110px;
-  height: 110px;
+  width: 80px;
+  height: 80px;
 }
+
 
 .modalMemberPhoto{
   display: block;
