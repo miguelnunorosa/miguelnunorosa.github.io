@@ -2,9 +2,14 @@
 	
 	"use strict";
 
-	$(function() {
-        $("#tabs").tabs();
-    });
+	const myModal = document.getElementById('myModal')
+	const myInput = document.getElementById('myInput')
+
+	myModal.addEventListener('shown.bs.modal', () => {
+	myInput.focus()
+	})
+	
+
 
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
