@@ -1,0 +1,403 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /*background-color: #999a6a;  Cor de fundo */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(153, 154, 106, 0.2); /* Fundo do menu com transparência */
+    padding: 20px 0;
+    z-index: 10;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*
+===================================================================
+                              NAVBAR
+===================================================================
+*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.title h1 {
+    color: white;
+    font-size: 24px;
+}
+
+.title span {
+    color: #ff4747; /* Destaque em vermelho */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin: 0 30px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #ff4747; /* Cor de destaque ao passar o mouse */
+}
+
+.section-img-division{
+    padding-bottom: 2%;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    padding-bottom: 2%;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+
+
+
+
+/*
+===================================================================
+                    SECTION 1: HOME
+===================================================================
+*/
+.hero-section {
+    background-color: #999a6a;
+}
+
+.quem-somos {
+    background-color: lightseagreen;
+}
+
+.equipe {
+    background-color: lightcoral;
+}
+
+.contacto {
+    background-color: lightblue;
+}
+
+.logo-container img {
+    max-width: 60vw;  /* Responsivo: até 60% da largura da viewport */
+    max-height: 80vh; /* Responsivo: até 80% da altura da viewport */
+    width: auto;
+    height: auto;
+}
+
+
+
+
+/*
+===================================================================
+                    SECTION 2: QUEM SOMOS
+===================================================================
+*/
+.quem-somos {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+
+/* Estilo dos cards com layout horizontal */
+.feature-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Ajuste da imagem para ser ao lado esquerdo */
+.feature-box-img {
+    width: 60px; /* Reduz o tamanho da "tabela" onde estão os cards*/
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; /* Espaço entre imagem e texto */
+}
+
+/* Estilo do conteúdo (texto) do card */
+.feature-box-content {
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.feature-box-content h5 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature-box-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+
+
+
+/*
+===================================================================
+                    SECTION 3: EQUIPA
+===================================================================
+*/
+.equipa {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+
+.teamMemberTable-box-img {
+    width: 80px; /* Reduz o tamanho da "tabela" onde estão os cards*/
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; /* Espaço entre imagem e texto */
+}
+
+/* Estilo dos cards com layout horizontal */
+.teamMembers-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.teamMembers-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Ajuste da imagem para ser ao lado esquerdo */
+.teamMembers-box-img {
+    width: 60px; /* Reduz o tamanho da "tabela" onde estão os cards*/
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; /* Espaço entre imagem e texto */
+}
+
+/* Estilo do conteúdo (texto) do card */
+.teamMembers-box-content {
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.teamMembers-box-content h5 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.teamMembers-box-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+
+
+
+/*
+===================================================================
+                    SECTION 4: CONTACTO
+===================================================================
+*/
+.contacto {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#contact-us {
+    margin-top: 140px;
+  }
+  
+  #contact-us .container-fluid .col-lg-6 {
+    padding: 0px;
+  }
+  
+  #contact-us .contact-form {
+    padding: 80px;
+    background-image: url(../images/teamMembers_defaultImage.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  #contact-us .contact-form #contact {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    color: #7a7a7a;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    width: 100%;
+    height: 40px;
+    outline: none;
+    line-height: 40px;
+    padding: 0px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-bottom: 30px;
+  }
+  
+  .contact-form textarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  .contact-form ::-webkit-input-placeholder { /* Edge */
+    color: #7a7a7a;
+  }
+  
+  .contact-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #7a7a7a;
+  }
+  
+  .contact-form ::placeholder {
+    color: #7a7a7a;
+  }
+  
+  .contact-form button {
+    display: inline-block;
+    font-size: 13px;
+    padding: 11px 17px;
+    background-color: #ed563b;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all .3s;
+    border: none;
+    outline: none;
+    margin-top: -8px;
+  }
+  
+  .contact-form button:hover {
+    background-color: #f9735b;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .menu {
+        margin-top: 10px;
+    }
+
+    .menu li {
+        margin: 0 10px;
+    }
+
+    .logo-container img {
+        max-width: 80vw;  /* Ajusta a largura para telas menores */
+        max-height: 70vh;
+    }
+
+
+    /*   SECTION 2: QUEM SOMOS*/
+    .section-title {
+        font-size: 28px;
+    }
+
+    .feature-box {
+        padding: 15px;
+        flex-direction: column; /* Alinha a imagem em cima para telas menores */
+    }
+
+    .feature-box-img {
+        width: 100%;
+        margin-bottom: 15px; /* Espaço entre a imagem e o texto no layout vertical */
+        margin-right: 0;
+    }
+
+    .section-description {
+        font-size: 16px;
+    }
+
+    .feature-box-content h5 {
+        font-size: 20px;
+    }
+
+    .feature-box-content p {
+        font-size: 14px;
+    }
+
+}
