@@ -5,7 +5,7 @@
  - Cano Interno (diâmetro): 6.08mm
  - Tipo rosca: 14mm CCW
  - Tipo Ficha: Dean
- - MOSFET: Mosfet GATE X-ASR (Básico)
+ - MOSFET: Sim => Mosfet GATE X-ASR (Básico)
  - Bateria: BlueMAX LiPo 11.1V 1450mAh 30C (stick)
  - Gearbox: v2
  - Bearings: 8 mm metal
@@ -13,7 +13,7 @@
  - Piston: Nylon with a full metal teeth
  - Piston head: Aluminium
  - Motor: Standard torque motor, long axle
- - Gatilho Eletrónico/Mosfet: Sim
+ - Gatilho Eletrónico: Não
  - Mudança Rápida de Mola: Sim
  - Sistema de Rail: RIS
  - Posições da Coronha: 6 Posições
