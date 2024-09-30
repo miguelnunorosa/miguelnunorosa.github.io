@@ -61,31 +61,31 @@
 |       **Componente**       |            **Descrição**         |
 |----------------------------|---------------------------------:|
 | Tamanho total              | 78 cm                            |
-| Cano Interno (size)        | 275 mm                           |
-| Cano Interno (diamentro)   | 6.08 mm                          |
-| Cano Externo (rosca)       | 14mm CCW                         |
-| Gearbox                    | v2                               |
-| Gearbox cables direction   | Back                             |
+| Cano Interno (size)        |                                  |
+| Cano Interno (diamentro)   |                                  |
+| Cano Externo (rosca)       |                                  |
+| Gearbox                    |                                  |
+| Gearbox cables direction   |                                  |
 | Spring guide               |                                  |
-| Spring                     | 110??                            |
-| Spring Quick Release       | Sim                              |
+| Spring                     |                                  |
+| Spring Quick Release       |                                  |
 | Cylinder                   |                                  |
-| Cylinder Head              | Aluminium (Basic)                |
-| Piston                     | Nylon with a full metal teeth    |
+| Cylinder Head              |                                  |
+| Piston                     |                                  |
 | Piston Head                |                                  |
 | Air Nozzle                 |                                  |
 | Hop-Up chamber             |                                  |
 | Hop-Up rubber              |                                  |
 | Tappet (mola Tappet Plate) |                                  |
 | Tappet Plate               |                                  |
-| Trigger                    | Mecanico                         |
+| Trigger                    |                                  |
 | Bevel Gear                 |                                  |
-| Spur Gear                  | Metal Alloy 18:1                 |
+| Spur Gear                  |                                  |
 | Setor Gear                 |                                  |
-| Bearings                   | 8mm (metal)                      |
-| Motor                      | Standard Torque, Long Axle       |
+| Bearings                   |                                  |
+| Motor                      |                                  |
 | Battery connector          | DEAN                             |
-| MOSFET                     | GATE X-ASR (Basic)               |
+| MOSFET                     |                                  |
 | Battery                    | LiPo 11.1v 1450mAh 30C           |
 | Rail System                | RIS                              |
 | Coronha                    | 6 Poições                        |
