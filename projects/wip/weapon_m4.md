@@ -41,6 +41,8 @@
 | Battery                    | LiPo 11.1v 1450mAh 30C           |
 | Rail System                | RIS                              |
 | Coronha                    | 6 Poições                        |
+| Potência (Joules / FPS)    | 1.3 / 384                        |
+| Peso                       |                                  |
 
 
 
@@ -55,7 +57,7 @@
 
 ## Upgrades
 
-- ??
+- Add: Holographic Raccoon 551 (Black)
 
 
 
@@ -101,6 +103,9 @@
 | Battery                    | LiPo 11.1v 1450mAh 30C           |
 | Rail System                | RIS                              |
 | Coronha                    | 6 Poições                        |
+| Optica                     | Holographic Raccoon 551 (Black)  |
+| Potência (Joules / FPS)    | 1.3 / 384                        |
+| Peso                       |                                  |
 
 
 
