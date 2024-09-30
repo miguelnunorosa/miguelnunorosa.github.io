@@ -39,7 +39,7 @@
 ## Upgrades
 
 * 2024.07.18
-    * Compra arma
+    * Compra inicial
     * upgrade mola: Laylax PSS100
     * upgrade Borracha Hop-Up: Maple Leaf 60º
     * Upgrade Tensor Hop-Up: Maple Leaf VSR-10 Hop Up Arms

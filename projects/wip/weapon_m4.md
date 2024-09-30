@@ -41,6 +41,7 @@
 | Battery                    | LiPo 11.1v 1450mAh 30C           |
 | Rail System                | RIS                              |
 | Coronha                    | 6 Poições                        |
+| Optica                     |                                  |
 | Potência (Joules / FPS)    | 1.3 / 384                        |
 | Peso                       |                                  |
 
@@ -57,7 +58,11 @@
 
 ## Upgrades
 
-- Add: Holographic Raccoon 551 (Black)
+* 2024.01.23:
+    * Compra inicial
+    * Compra bateria: BlueMax LiPo 11.1v 1450mAh 30C
+* 2024.02.27:
+    * Compra óptica: Holographic Raccoon 551 (Black)
 
 
 
