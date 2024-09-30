@@ -1,27 +1,91 @@
-## SPECNA ARMS RRA SA-E04 EDGE
+# SPECNA ARMS RRA SA-E04 EDGE
 
- - Product length [cm]: 78
- - Cano Interno (comprimento): 275 mm (minimo aceitavel: 695mm)
- - Cano Interno (diâmetro): 6.08mm
- - Tipo rosca: 14mm CCW
- - Tipo Ficha: Dean
- - MOSFET: Sim => Mosfet GATE X-ASR (Básico)
- - Bateria: BlueMAX LiPo 11.1V 1450mAh 30C (stick)
- - Gearbox: v2
- - Bearings: 8 mm metal
- - Gears: Metal alloy, 18:1
- - Piston: Nylon with a full metal teeth
- - Piston head: Aluminium
- - Motor: Standard torque motor, long axle
- - Gatilho Eletrónico: Não
- - Mudança Rápida de Mola: Sim
- - Sistema de Rail: RIS
- - Posições da Coronha: 6 Posições
- - Cablagem da Gearbox: Traseira
+<br><br>
+
+## Default Config
+
+|       **Componente**       |            **Descrição**         |
+|----------------------------|---------------------------------:|
+| Tamanho total              | 78 cm                            |
+| Cano Interno (size)        | 275 mm                           |
+| Cano Interno (diamentro)   | 6.08 mm                          |
+| Cano Externo (rosca)       | 14mm CCW                         |
+| Gearbox                    | v2                               |
+| Gearbox cables direction   | Back                             |
+| Spring guide               |                                  |
+| Spring                     | 110??                            |
+| Spring Quick Release       | Sim                              |
+| Cylinder                   |                                  |
+| Cylinder Head              | Aluminium (Basic)                |
+| Piston                     | Nylon with a full metal teeth    |
+| Piston Head                |                                  |
+| Air Nozzle                 |                                  |
+| Hop-Up chamber             |                                  |
+| Hop-Up rubber              |                                  |
+| Tappet (mola Tappet Plate) |                                  |
+| Tappet Plate               |                                  |
+| Trigger                    | Mecanico                         |
+| Bevel Gear                 |                                  |
+| Spur Gear                  | Metal Alloy 18:1                 |
+| Setor Gear                 |                                  |
+| Bearings                   | 8mm (metal)                      |
+| Motor                      | Standard Torque, Long Axle       |
+| Battery connector          | DEAN                             |
+| MOSFET                     | GATE X-ASR (Basic)               |
+| Battery                    | LiPo 11.1v 1450mAh 30C           |
+| Rail System                | RIS                              |
+| Coronha                    | 6 Poições                        |
 
 
-<br>
 
-# Upgrades
+
+
+
+
+
+
+<br><br><br> 
+
+
+## Upgrades
 
 - ??
+
+
+
+
+<br><br>
+
+## Actual config
+
+|       **Componente**       |            **Descrição**         |
+|----------------------------|---------------------------------:|
+| Tamanho total              | 78 cm                            |
+| Cano Interno (size)        | 275 mm                           |
+| Cano Interno (diamentro)   | 6.08 mm                          |
+| Cano Externo (rosca)       | 14mm CCW                         |
+| Gearbox                    | v2                               |
+| Gearbox cables direction   | Back                             |
+| Spring guide               |                                  |
+| Spring                     | 110??                            |
+| Spring Quick Release       | Sim                              |
+| Cylinder                   |                                  |
+| Cylinder Head              | Aluminium (Basic)                |
+| Piston                     | Nylon with a full metal teeth    |
+| Piston Head                |                                  |
+| Air Nozzle                 |                                  |
+| Hop-Up chamber             |                                  |
+| Hop-Up rubber              |                                  |
+| Tappet (mola Tappet Plate) |                                  |
+| Tappet Plate               |                                  |
+| Trigger                    | Mecanico                         |
+| Bevel Gear                 |                                  |
+| Spur Gear                  | Metal Alloy 18:1                 |
+| Setor Gear                 |                                  |
+| Bearings                   | 8mm (metal)                      |
+| Motor                      | Standard Torque, Long Axle       |
+| Battery connector          | DEAN                             |
+| MOSFET                     | GATE X-ASR (Basic)               |
+| Battery                    | LiPo 11.1v 1450mAh 30C           |
+| Rail System                | RIS                              |
+| Coronha                    | 6 Poições                        |
