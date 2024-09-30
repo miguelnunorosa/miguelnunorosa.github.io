@@ -10,12 +10,18 @@
 | Cano Interno (size)        | 430 mm                              |
 | Cano Interno (diamentro)   | 6.04 mm                             |
 | Cano                       |                                     |
-| Mola                       | Laylax PSS10 100                    |
-| Hop-up Rubber              | Maple Leaf Autobot Bucking 60º      |
-| Hop-up Arm                 | Maple Leaf VSR-10 Hop Up Arms       | 
+| Cano (espaçadores)         | _não tem_                           |
+| Spring                     |                                     |
+| Spring Guide               |                                     |
+| Hop-Up Chamber             |                                     |
+| Hop-up Rubber              |                                     |
+| Hop-up Arm                 |                                     |
+| Cylinder                   |                                     |
+| Piston                     |                                     |
+| Trigger                    |                                     |
 | Compatibilidade Bipé       | Harris type                         |
-| Scope Mount                | Tokyo Marui VSR-10 Scope Mount Base |
-| Scope                      | Scope 3-9x40 Raccoon (Black)        |
+| Scope Mount                | _não tem_                           |
+| Scope                      | _não tem_                           |
 | Peso                       |                                     |
 
 
@@ -32,7 +38,14 @@
 
 ## Upgrades
 
-- ??
+* 2024.07.18
+    * Compra arma
+    * upgrade mola: Laylax PSS100
+    * upgrade Borracha Hop-Up: Maple Leaf 60º
+    * Upgrade Tensor Hop-Up: Maple Leaf VSR-10 Hop Up Arms
+    * Compra: VSR-10 Scope Mount Rail
+* 2024.08.20
+    * Compra Scope: Raccoon 3-9x40 Scope (Black)
 
 
 
@@ -58,7 +71,7 @@
 | Trigger                    |                                     |
 | Compatibilidade Bipé       | Harris type                         |
 | Scope Mount                | Tokyo Marui VSR-10 Scope Mount Base |
-| Scope                      | Scope 3-9x40 Raccoon (Black)        |
+| Scope                      | Raccoon 3-9x40 Scope (Black)        |
 | Peso                       |                                     |
 
 
