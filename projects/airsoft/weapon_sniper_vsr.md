@@ -72,7 +72,7 @@
 | Compatibilidade Bipé       | Harris type                         |
 | Scope Mount                | Tokyo Marui VSR-10 Scope Mount Base |
 | Scope                      | Raccoon 3-9x40 Scope (Black)        |
-| Peso                       |                                     |
+| Peso (g)                   | 2.400                               |
 
 
 
