@@ -110,7 +110,7 @@
 | Coronha                    | 6 Poições                        |
 | Optica                     | Holographic Raccoon 551 (Black)  |
 | Potência (Joules / FPS)    | 1.3 / 384                        |
-| Peso                       |                                  |
+| Peso (g)                   | 2.600                            |
 
 
 
