@@ -1,0 +1,15 @@
+{
+  "name": "bombeiros-mertola",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i assets/css/input.css -o assets/css/styles.css --minify",
+    "watch": "tailwindcss -c tailwind.config.js -i assets/css/input.css -o assets/css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Site oficial dos Bombeiros Voluntários de Mértola",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

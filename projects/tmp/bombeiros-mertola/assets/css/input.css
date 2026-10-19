@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --content-wide: 1200px;
+  }
+
+  dialog {
+    margin: auto;
+    padding: 0;
+    border: none;
+  }
+
+  html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    font-family: Satoshi, 'Work Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.65;
+    color: theme('colors.ink');
+    background: theme('colors.paper');
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Clash Display', 'Archivo Black', sans-serif;
+    font-weight: 600;
+    text-wrap: balance;
+    line-height: 1.12;
+  }
+
+  ::selection {
+    background: theme('colors.ember');
+    color: theme('colors.cream');
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.ember');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Diagonal hazard stripes used as a brand motif */
+  .stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      theme('colors.ember') 0 14px,
+      theme('colors.charcoal') 14px 28px
+    );
+  }
+
+  .stripes-thin {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      theme('colors.ember') 0 8px,
+      transparent 8px 16px
+    );
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgb(246 241 228 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(246 241 228 / 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgb(246 241 228 / 0.55);
+  }
+
+  .text-outline-ember {
+    color: transparent;
+    -webkit-text-stroke: 1.5px theme('colors.ember.bright');
+  }
+
+  .section-eyebrow {
+    @apply font-body text-xs font-bold uppercase tracking-[0.22em];
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-body text-sm font-bold uppercase tracking-[0.12em] transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-ember text-cream hover:bg-ember-dark active:translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply btn border border-cream/30 text-cream hover:border-cream hover:bg-cream/5;
+  }
+
+  .btn-outline {
+    @apply btn border border-ink/20 text-ink hover:border-ember hover:text-ember;
+  }
+
+  .field-label {
+    @apply block font-body text-xs font-bold uppercase tracking-[0.14em] text-ink/70;
+  }
+
+  .field-input {
+    @apply w-full border border-ink/15 bg-white px-4 py-3 font-body text-base text-ink placeholder:text-ink/30 focus:border-ember focus:outline-none;
+  }
+
+  .field-error {
+    /* Espaço sempre reservado: a mensagem nunca empurra o conteúdo
+       para baixo quando aparece (evita cliques perdidos a meio). */
+    @apply min-h-[1.35rem] font-body text-sm font-medium text-ember;
+    visibility: hidden;
+  }
+
+  .field-input[data-invalid='true'] {
+    @apply border-ember bg-ember/5;
+  }
+
+  .field-error[data-visible='true'] {
+    visibility: visible;
+  }
+
+  .card {
+    @apply border border-ink/10 bg-white shadow-card;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 border border-ink/15 bg-paper-2 px-3 py-1 font-body text-xs font-bold uppercase tracking-[0.1em] text-ink/70;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
